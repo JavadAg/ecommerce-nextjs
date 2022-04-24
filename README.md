@@ -44,4 +44,6 @@ Redux persist
 
 Tailwind CSS
 
+Embla carousel
+
 Axios
