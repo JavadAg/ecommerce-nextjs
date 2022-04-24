@@ -1,0 +1,288 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "brand": "Nike",
+      "title": "DUNKLOWRETRO",
+      "price": "216",
+      "sold": "1",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/17/57/57/47/17575747_36444740_2048.jpg",
+        "https://img.stadiumgoods.com/17/57/57/47/17575747_36444741_2048.jpg"
+      ],
+      "sizes": [{ "small": 5, "medium": 7, "large": 58 }]
+    },
+    {
+      "id": 2,
+      "brand": "Jordan",
+      "title": "AIRJORDAN7SE",
+      "price": "372",
+      "sold": "23",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-7-se-sapphire_17809390_39266129_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-7-se-sapphire_17809390_39266132_2048.jpg"
+      ],
+      "sizes": [{ "small": 55, "medium": 8, "large": 9 }]
+    },
+    {
+      "id": 3,
+      "brand": "NEWBALANCE",
+      "title": "NEWBALANCE2002R",
+      "price": "378",
+      "sold": "23",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/new-balance-new-balance-2002r-joe-freshgoods-conversations-amongst-us_18374837_39301136_2048.jpg",
+        "https://img.stadiumgoods.com/new-balance-new-balance-2002r-joe-freshgoods-conversations-amongst-us_18374837_39301138_2048.jpg"
+      ],
+      "sizes": [{ "small": 22, "medium": 4, "large": 5 }]
+    },
+    {
+      "id": 4,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN1HIGH85",
+      "price": "523",
+      "sold": "12",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-1-high-85-georgetown_17768939_38737756_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-1-high-85-georgetown_17768939_38739082_2048.jpg"
+      ],
+      "sizes": [{ "small": 5, "medium": 8, "large": 0 }]
+    },
+    {
+      "id": 5,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN5RETRO",
+      "price": "353",
+      "sold": "11",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-5-retro-jade-horizon_17690305_38420835_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-5-retro-jade-horizon_17690305_38421483_2048.jpg"
+      ],
+      "sizes": [{ "small": 44, "medium": 8, "large": 2 }]
+    },
+    {
+      "id": 6,
+      "brand": "Nike",
+      "title": "DUNKLOW",
+      "price": "543",
+      "sold": "43",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/nike-dunk-low-union-passport-pack-court-purple_18363727_39301097_2048.jpg",
+        "https://img.stadiumgoods.com/nike-dunk-low-union-passport-pack-court-purple_18363727_39300324_2048.jpg"
+      ],
+      "sizes": [{ "small": 0, "medium": 0, "large": 12 }]
+    },
+    {
+      "id": 7,
+      "brand": "ADIDASYEEZY",
+      "title": "YEEZY350V2",
+      "price": "529",
+      "sold": "23",
+      "type": "men",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-350-v2-dazzling-blue_17809387_38374763_2048.jpg",
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-350-v2-dazzling-blue_17809387_38375506_2048.jpg"
+      ],
+      "sizes": [{ "small": 5, "medium": 25, "large": 44 }]
+    },
+    {
+      "id": 8,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN12RETRO",
+      "price": "353",
+      "type": "men",
+      "sold": "23",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-12-retro-playoffs-2022_17767726_38264475_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-12-retro-playoffs-2022_17767726_38264477_2048.jpg"
+      ],
+      "sizes": [{ "small": 245, "medium": 5, "large": 0 }]
+    },
+    {
+      "id": 9,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN11RETRO",
+      "price": "216",
+      "sold": "32",
+      "type": "women",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-11-retro-cool-grey-2021_17565419_36444742_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-11-retro-cool-grey-2021_17565419_36442760_2048.jpg"
+      ],
+      "sizes": [{ "small": 5, "medium": 8, "large": 12 }]
+    },
+    {
+      "id": 10,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN3",
+      "price": "327",
+      "type": "women",
+      "sold": "3",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-3-cardinal_17691236_38509657_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-3-cardinal_17691236_38511540_2048.jpg"
+      ],
+      "sizes": [{ "small": 4, "medium": 8, "large": 12 }]
+    },
+    {
+      "id": 11,
+      "brand": "Nike",
+      "title": "AIRFORCE1LOW'07",
+      "price": "316",
+      "sold": "77",
+      "type": "women",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/nike-air-force-1-low-07-white-on-white_16352608_34368100_2048.jpg",
+        "https://img.stadiumgoods.com/nike-air-force-1-low-07-white-on-white_16352608_34368101_2048.jpg"
+      ],
+      "sizes": [{ "small": 0, "medium": 757, "large": 2 }]
+    },
+    {
+      "id": 12,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN1HIGHOG",
+      "price": "236",
+      "sold": "53",
+      "type": "women",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-1-high-og-brotherhood_17768938_38498432_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-1-high-og-brotherhood_17768938_38497929_2048.jpg"
+      ],
+      "sizes": [{ "small": 54, "medium": 888, "large": 12 }]
+    },
+    {
+      "id": 13,
+      "brand": "Nike",
+      "title": "BLAZERLOW",
+      "price": "283",
+      "type": "women",
+      "sold": "23",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/17/71/29/83/17712983_39055790_2048.jpg",
+        "https://img.stadiumgoods.com/17/71/29/83/17712983_39053585_2048.jpg"
+      ],
+      "sizes": [{ "small": 2, "medium": 224, "large": 0 }]
+    },
+    {
+      "id": 14,
+      "brand": "ADIDASYEEZY",
+      "title": "YEEZYBOOST350V2",
+      "price": "426",
+      "sold": "4",
+      "type": "women",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-boost-350-v2-bred_11936444_34437409_2048.jpg",
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-boost-350-v2-bred_11936444_34438682_2048.jpg"
+      ],
+      "sizes": [{ "small": 22, "medium": 4, "large": 45 }]
+    },
+    {
+      "id": 15,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN13RETRO",
+      "price": "365",
+      "type": "kids",
+      "sold": "11",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-13-retro-del-sol_17767832_38994157_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-13-retro-del-sol_17767832_38994159_2048.jpg"
+      ],
+      "sizes": [{ "small": 5, "medium": 4, "large": 21 }]
+    },
+    {
+      "id": 16,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN6RETRO",
+      "price": "405",
+      "sold": "21",
+      "type": "kids",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-6-retro-unc_17769734_37844207_2048.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-6-retro-unc_17769734_37844208_2048.jpg"
+      ],
+      "sizes": [{ "small": 0, "medium": 2, "large": 8 }]
+    },
+    {
+      "id": 17,
+      "brand": "JORDAN",
+      "title": "AIRJORDAN3",
+      "price": "437",
+      "tag": "New",
+      "sold": "5",
+      "type": "kids",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/jordan-air-jordan-3-muslin_17768990_38976938_1000.jpg",
+        "https://img.stadiumgoods.com/jordan-air-jordan-3-muslin_17768990_38978230_2048.jpg"
+      ],
+      "sizes": [{ "small": 4, "medium": 45, "large": 2 }]
+    },
+    {
+      "id": 18,
+      "brand": "ADIDASYEEZY",
+      "title": "YEEZY450",
+      "price": "422",
+      "tag": "New",
+      "sold": "43",
+      "type": "kids",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-450-cloud-white_16548992_34395526_2048.jpg",
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-450-cloud-white_16548992_34395527_2048.jpg"
+      ],
+      "sizes": [{ "small": 4, "medium": 9, "large": 5 }]
+    },
+    {
+      "id": 19,
+      "brand": "ADIDASYEEZY",
+      "title": "YEEZY700V3",
+      "price": "408",
+      "tag": "New",
+      "sold": "6",
+      "type": "kids",
+      "quantity": "5",
+      "img": [
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-700-v3-kyanite_16484200_34395046_2048.jpg",
+        "https://img.stadiumgoods.com/adidas-yeezy-yeezy-700-v3-kyanite_16484200_34395047_2048.jpg"
+      ],
+      "sizes": [{ "small": 5, "medium": 5, "large": 2 }]
+    },
+    {
+      "id": 20,
+      "brand": "Nike",
+      "title": "WMNSAIRFORCE1LOW",
+      "price": "171",
+      "tag": "New",
+      "quantity": "5",
+      "sold": "4",
+      "type": "kids",
+      "img": [
+        "https://img.stadiumgoods.com/nike-wmns-air-force-1-low-white-washed-teal_17980006_37926418_2048.jpg",
+        "https://img.stadiumgoods.com/nike-wmns-air-force-1-low-white-washed-teal_17980006_37926419_2048.jpg"
+      ],
+      "sizes": [{ "small": 3, "medium": 0, "large": 7 }]
+    }
+  ]
+}
