@@ -7,7 +7,7 @@ import {
 import { useSelector, useDispatch } from "react-redux"
 import { HiX } from "react-icons/hi"
 
-const Cart = () => {
+const CartComponent = () => {
   const cart = useSelector((state) => state.cart)
 
   const dispatch = useDispatch()
@@ -92,4 +92,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default CartComponent
