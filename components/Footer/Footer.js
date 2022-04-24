@@ -5,7 +5,8 @@ import {
   IoLogoPinterest,
   IoLogoWhatsapp,
   IoLogoFacebook
-} from "react-icons/Io"
+} from "react-icons/io"
+
 const Footer = () => {
   return (
     <div className="flex flex-col justify-center items-center mt-10 py-6 ">
