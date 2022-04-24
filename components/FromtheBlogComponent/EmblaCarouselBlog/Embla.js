@@ -64,6 +64,7 @@ const EmblaCarousel = ({ slides }) => {
                 <img
                   className="object-cover rounded-2xl w-full h-24"
                   src={item.img}
+                  alt="blog"
                 />
                 <h1 className="font-bold flex justify-center my-1 items-center">
                   {item.title}

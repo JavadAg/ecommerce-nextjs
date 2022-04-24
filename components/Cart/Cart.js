@@ -29,7 +29,7 @@ const CartPage = () => {
             </h1>
           ) : (
             cart.map((item) => (
-              <div className="py-4">
+              <div key={item.id} className="py-4">
                 <div className="flex justify-between items-center ">
                   <div>
                     <p className="font-bold">{item.title}</p>
@@ -43,6 +43,7 @@ const CartPage = () => {
                       className="aspect-video object-contain bg-gray-50 rounded-2xl"
                       layout="responsive"
                       src={item.img[0]}
+                      alt={item.name}
                       height="0"
                       width="0"
                     />

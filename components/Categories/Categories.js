@@ -31,6 +31,7 @@ const Categories = ({ data }) => {
               <img
                 className="object-cover flex justify-center h-full items-center w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out"
                 src="/./all.png"
+                alt="all"
               />
               <div className="absolute bg-white   rounded-xl bottom-2 left-2 flex flex-col text-center">
                 <p className=" font-bold text-sm lg:text-base">All</p>
@@ -46,6 +47,7 @@ const Categories = ({ data }) => {
               <img
                 className="object-cover h-full flex justify-center items-center w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out"
                 src="/./kids.png"
+                alt="kids"
               />
               <div className="absolute bg-white   rounded-xl bottom-2 left-2 flex flex-col text-center">
                 <p className="font-bold text-sm lg:text-base">Kids</p>

@@ -3,7 +3,7 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../redux/cart.slice"
 
-const index = ({ appProps }) => {
+const Shop = ({ appProps }) => {
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart)
 
@@ -54,4 +54,4 @@ const index = ({ appProps }) => {
   )
 }
 
-export default index
+export default Shop

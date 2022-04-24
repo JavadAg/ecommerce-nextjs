@@ -10,6 +10,7 @@ const Policy = () => {
           <img
             className="w-6 h-6 lg:w-16 lg:h-16"
             src="/./delivery-truck.png"
+            alt="delivery"
           />
           <div className="flex flex-col">
             <p className="font-semibold text-sm lg:text-xl">Free Delivery</p>
@@ -20,6 +21,7 @@ const Policy = () => {
           <img
             className="w-6 h-6  lg:w-16 lg:h-16"
             src="/./product-return.png"
+            alt="product"
           />
           <div className="flex flex-col">
             <p className="font-semibold text-sm lg:text-xl ">Return Policy</p>
@@ -27,7 +29,11 @@ const Policy = () => {
           </div>
         </div>
         <div className="flex flex-col  justify-center items-center w-full ">
-          <img className="w-6 h-6  lg:w-16 lg:h-16" src="/./exclusive.png" />
+          <img
+            className="w-6 h-6  lg:w-16 lg:h-16"
+            src="/./exclusive.png"
+            alt="exclusive"
+          />
           <div className="flex flex-col">
             <p className="font-semibold text-sm lg:text-xl ">Quality Product</p>
             <p></p>
