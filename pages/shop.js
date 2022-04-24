@@ -3,14 +3,14 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../redux/cart.slice"
 
-const Shop = ({ appProps }) => {
+const ShopPage = ({ appProps }) => {
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart)
 
   const handleCart = (item) => {
     dispatch(addToCart(item))
   }
-  console.log(cart)
+
   return (
     <>
       <div className="bg-gray-100 ">
@@ -54,4 +54,4 @@ const Shop = ({ appProps }) => {
   )
 }
 
-export default Shop
+export default ShopPage

@@ -35,7 +35,7 @@ function MyApp({ Component, appProps }) {
 MyApp.getInitialProps = async ({ ctx }) => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/data`)
   const data = await res.data
-  console.log(data)
+
   return { appProps: data.data.reverse() }
 }
 export default MyApp

@@ -4,8 +4,6 @@ import {
   HiOutlineShoppingCart,
   HiOutlineUser,
   HiOutlineHeart,
-  HiMenuAlt2,
-  HiX,
   HiSearch
 } from "react-icons/hi"
 import MobileNavbar from "./Mobile/MobileNavbar"
@@ -14,7 +12,7 @@ import MobileSidebar from "./Mobile/MobileSidebar"
 const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", isSticky)
-  }, [scroll])
+  }, [])
 
   const [sticky, setSticky] = useState(false)
   const isSticky = () => {

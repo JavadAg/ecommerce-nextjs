@@ -67,6 +67,7 @@ const Categories = ({ data }) => {
                 src="/./men.png"
                 layout="responsive"
                 width="0"
+                alt="men"
                 height="0"
               />
               <div className="absolute bg-white   rounded-xl bottom-2 left-2 flex flex-col text-center">
@@ -85,6 +86,7 @@ const Categories = ({ data }) => {
                 src="/./women.png"
                 layout="responsive"
                 width="0"
+                alt="women"
                 height="0"
               />
               <div className="absolute bg-white rounded-xl bottom-2 left-2 flex flex-col text-center">
