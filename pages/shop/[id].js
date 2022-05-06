@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
 
   const data = await res.data
 
-  const paths = data.map((item) => ({
+  const paths = data?.map((item) => ({
     params: {
       id: item.id.toString()
     }
