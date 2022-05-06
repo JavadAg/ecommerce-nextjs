@@ -1,18 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react"
-import {
-  DotButton,
-  PrevButton,
-  NextButton
-} from "../EmblaCarouselButtons/EmblaCarouselButtons"
+import { DotButton, PrevButton, NextButton } from "./EmblaButtons"
 import useEmblaCarousel from "embla-carousel-react"
 /* import { mediaByIndex } from "../../../constants/index" */
 import Image from "next/image"
 
 const slides = [
   {
-    img: "/./banner3.jpg"
+    img: "/banner1.png"
   },
-  { img: "/./banner4.jpg" }
+  { img: "/banner2.png" }
 ]
 
 const EmblaCarousel = () => {
@@ -44,32 +40,32 @@ const EmblaCarousel = () => {
   }, [embla, setScrollSnaps, onSelect])
 
   return (
-    <div className="flex justify-center">
-      <div className="relative flex justify-center items-center rounded-lg p-1 w-full aspect-video max-h-[900px] ">
+    <>
+      <div className="relative rounded-lg p-1 flex justify-center items-center">
         <div
-          className="overflow-hidden max-w-[1600px] rounded-lg w-full h-full"
+          className="overflow-hidden w-full max-w-[2000px] "
           ref={viewportRef}
         >
-          <div className="flex group h-full">
+          <div className="flex">
             {slides.map((item, index) => (
-              <div
-                className="relative min-w-full grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out "
-                key={index}
-              >
-                <div className="relative w-full h-full">
-                  <p className="absolute right-10 top-2/4 w-24 text-xl text-slate-700 opacity-80 font-bold break-words sm:text-3xl sm:top-[40%] sm:w-36 md:text-5xl md:w-60 lg:text-7xl lg:w-96 xl:w-[500px] xl:text-8xl">
-                    The Fashion of Champion
-                  </p>
-                </div>
-                <div className="absolute w-2/4 h-3/4 bottom-0 ">
+              <div className="relative  min-w-full " key={index}>
+                <div className="relative min-h-64 overflow-hidden">
                   <Image
-                    className="rounded-t-full object-cover "
-                    width={0}
-                    height={0}
-                    layout="fill"
+                    className="object-cover min-h-full min-w-full rounded-2xl"
                     src={item.img}
+                    width="2000px"
+                    height="680px"
+                    layout="responsive"
                     alt="banner"
                   />
+                  <div className="absolute bg-slate-50/30 m-0 top-2/4 left-4 rounded-2xl px-8 py-4 h-2/4 z-10 -translate-y-2/4 flex justify-around flex-col items-center backdrop-blur-2xl">
+                    <p className="text-6xl font-black text-slate-700 ">
+                      The Fashion of Champion
+                    </p>
+                    <button className="bg-red-400 text-white px-4 rounded-xl font-bold text-sm py-2">
+                      Shop Now
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -89,7 +85,7 @@ const EmblaCarousel = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

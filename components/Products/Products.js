@@ -1,15 +1,12 @@
-import Image from "next/image"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addToCart } from "../redux/cart.slice"
+import { addToCart } from "../../redux/cart.slice"
+import Image from "next/image"
+import { useRouter } from "next/router"
 
-const ShopPage = ({ appProps }) => {
+const Products = ({ data }) => {
   const dispatch = useDispatch()
-  const cart = useSelector((state) => state.cart)
-
-  const handleCart = (item) => {
-    dispatch(addToCart(item))
-  }
+  const router = useRouter()
 
   return (
     <>
@@ -17,10 +14,10 @@ const ShopPage = ({ appProps }) => {
         <div className="flex flex-col justify-center items-center ">
           <div className=" py-6 px-4 md:px-10 w-full mt-24 xl:px-36">
             <div className="grid grid-cols-2 grid-rows-2 gap-y-10 gap-x-4 md:grid-cols-3 xl:grid-cols-4">
-              {appProps.map((item) => (
+              {data?.map((item) => (
                 <div
                   onClick={() => {
-                    handleCart(item)
+                    router.push(`/shop/${item.id}`)
                   }}
                   key={item.id}
                   className=" relative bg-[#F8F8F8] rounded-2xl hover:ring-2 ring-indigo-400 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
@@ -31,7 +28,7 @@ const ShopPage = ({ appProps }) => {
                       layout="responsive"
                       width="0"
                       height="0"
-                      src={item.img[0]}
+                      src={item?.img[0]}
                       alt={item.title}
                     />
                   </div>
@@ -54,4 +51,4 @@ const ShopPage = ({ appProps }) => {
   )
 }
 
-export default ShopPage
+export default Products

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
-import { PrevButton, NextButton } from "../EmblaCarouselButton/EmblaButton"
+import { PrevButton, NextButton } from "./EmblaButtons"
 import useEmblaCarousel from "embla-carousel-react"
 
 const fakeBlog = [
