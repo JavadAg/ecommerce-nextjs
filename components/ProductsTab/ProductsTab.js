@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { HiHeart } from "react-icons/hi"
+import { useRouter } from "next/router"
 
 const ProductTab = ({ data }) => {
+  const router = useRouter()
+  console.log(data)
   const tabs = [
     {
-      name: "Featured",
-      item: data
+      name: "Price Drops",
+      item: data?.filter((item) => item?.discountedPrice > 0)
     },
     {
       name: "New Arrivals",
-      item: data.filter((item) => item.tag === "New")
+      item: data
     },
-    { name: "Best Sell", item: data.filter((item) => item.sold >= 10) }
+    { name: "Best Sell", item: data?.filter((item) => item.sold >= 10) }
   ]
-
+  const [postNum, setPostNum] = useState(4)
   const [selected, setSelected] = useState(tabs[1])
+  const [discountedExist, setDiscountedExist] = useState(false)
 
   const handleSelect = (tab) => {
     setSelected(tab)
+  }
+
+  const handleLoad = () => {
+    setPostNum((prevPostNum) => prevPostNum + 4)
   }
 
   return (
@@ -29,7 +37,7 @@ const ProductTab = ({ data }) => {
           className="relative flex justify-center items-center gap-2 after:content-[attr(before)] after:opacity-5 after:absolute after:font-black after:tracking-widest after:text-4xl after:-z-0 "
         >
           {tabs.map((tab) => (
-            <p
+            <span
               key={tab.name}
               name={tab.name}
               onClick={() => {
@@ -40,45 +48,72 @@ const ProductTab = ({ data }) => {
               } cursor-pointer `}
             >
               {tab.name}
-            </p>
+            </span>
           ))}
         </div>
-        <div className=" py-6 px-4 md:px-10 lg:px-24 w-full xl:px-36">
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4   gap-y-10 gap-x-4">
-            {selected.item.slice(0, 4).map((item) => (
+        <div className="py-6 px-4 md:px-10 lg:px-24 w-full xl:px-36">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4   gap-y-4 gap-x-4">
+            {selected.item?.slice(0, postNum).map((item) => (
               <div
                 key={item.id}
-                className=" relative bg-[#F8F8F8] rounded-2xl hover:ring-2 ring-indigo-400 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
+                onClick={() => {
+                  router.push(`/shop/${item.id}`)
+                }}
+                className=" relative bg-[#F8F8F8] rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
               >
                 <div className="p-2">
-                  {item.tag == "New" && (
+                  {/* {item.tag == "New" && (
                     <div className="absolute bg-red-400 w-10 h-5 rounded-2xl flex justify-center text-center items-center text-xs font-bold text-slate-100 lg:text-sm lg:w-14 lg:h-7">
                       {item.tag}
                     </div>
-                  )}
+                  )} */}
                   <div className="absolute  right-2 w-10 h-5 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl">
                     <HiHeart />
                   </div>
+
                   <Image
                     className="object-center object-contain hover:rotate-12  transition-all ease-in-out duration-500 "
                     layout="responsive"
                     width="0"
                     height="0"
                     src={item.img[0]}
-                    alt={item.title}
+                    alt={item.name}
                   />
                 </div>
                 <div className="mt-4 flex justify-center items-center flex-col">
-                  <p className="text-sm opacity-80 font-medium lg:font-bold lg:text-base">
+                  <span className="text-sm opacity-80 font-medium lg:font-bold lg:text-base">
                     {item.brand}
-                  </p>
-                  <p className="text-xs opacity-70  lg:text-sm">{item.title}</p>
-                  <p className="text-sm font-bold  my-1 text-slate-700 lg:font-bold lg:text-base">
-                    {item.price}$
-                  </p>
+                  </span>
+                  <span className="text-xs opacity-70 font-medium lg:text-sm">
+                    {item.name}
+                  </span>
+                  <div className="space-x-1 flex items-center justify-center">
+                    <span
+                      className={`text-sm font-medium my-1 text-slate-700 space-x-1 lg:text-base ${
+                        item.discountedPrice && "line-through"
+                      }`}
+                    >
+                      {item.price}$
+                    </span>
+                    {item.discountedPrice && (
+                      <span className="text-sm font-medium my-1 text-slate-700 space-x-1 lg:text-base">
+                        {item.discountedPrice}$
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center items-center w-full mt-6">
+            {postNum <= data.length && (
+              <button
+                className="bg-gray-50 px-3 border border-gray-500/20 py-1 rounded-xl font-medium text-sm hover:bg-slate-200  transition-colors duration-100 ease-linear"
+                onClick={handleLoad}
+              >
+                Load more ...
+              </button>
+            )}
           </div>
         </div>
       </div>

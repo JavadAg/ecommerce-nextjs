@@ -1,32 +1,52 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, current } from "@reduxjs/toolkit"
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: [],
   reducers: {
     addToCart: (state, action) => {
-      const itemExist = state.find((item) => item.id === action.payload.id)
+      const { data, quantity, selectedSize } = action.payload
+
+      const itemExist = state.find(
+        (item) => item.id === data.id && item.cart.size == selectedSize.size
+      )
+
       if (itemExist) {
-        itemExist.qty++
+        itemExist.cart.qty = itemExist.cart.qty + quantity
       } else {
-        state.push({ ...action.payload, qty: 1 })
+        state.push({
+          ...data,
+          cart: { size: selectedSize.size, qty: quantity },
+          selectedSize: selectedSize
+        })
       }
     },
+
     incrementQty: (state, action) => {
-      const item = state.find((item) => item.id === action.payload)
-      item.qty++
+      const item = state.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.cart.size === action.payload.cart.size
+      )
+      item.cart.qty++
     },
+
     decrementQty: (state, action) => {
-      const item = state.find((item) => item.id === action.payload)
-      if (item.qty === 1) {
-        const index = state.findIndex((item) => item.id === action.payload)
+      const item = state.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.cart.size === action.payload.cart.size
+      )
+      if (item.cart.qty === 1) {
+        const index = state.findIndex((item) => item.id === action.payload.id)
         state.splice(index, 1)
       } else {
-        item.qty--
+        item.cart.qty--
       }
     },
+
     removeFromCart: (state, action) => {
-      const index = state.findIndex((item) => item.id === action.payload)
+      const index = state.findIndex((item) => item.id === action.payload.id)
       state.splice(index, 1)
     }
   }

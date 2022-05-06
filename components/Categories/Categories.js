@@ -3,9 +3,9 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 
 const Categories = ({ data }) => {
-  const kidsQuantity = data.filter((item) => item.type === "kids")
-  const menQuantity = data.filter((item) => item.type === "men")
-  const womenQuantity = data.filter((item) => item.type === "women")
+  const kidsQuantity = data?.filter((item) => item.type === "kids")
+  const menQuantity = data?.filter((item) => item.type === "men")
+  const womenQuantity = data?.filter((item) => item.type === "women")
   const router = useRouter()
 
   return (
@@ -36,7 +36,7 @@ const Categories = ({ data }) => {
               <div className="absolute bg-white   rounded-xl bottom-2 left-2 flex flex-col text-center">
                 <p className=" font-bold text-sm lg:text-base">All</p>
                 <p className="bg-red-600 text-sm text-slate-100 px-6 rounded-b-xl lg:w-24">
-                  {data.length}
+                  {data?.length}
                 </p>
               </div>
             </div>
@@ -52,7 +52,7 @@ const Categories = ({ data }) => {
               <div className="absolute bg-white   rounded-xl bottom-2 left-2 flex flex-col text-center">
                 <p className="font-bold text-sm lg:text-base">Kids</p>
                 <p className="bg-gray-900 text-sm text-slate-50 px-6 rounded-b-xl lg:w-24">
-                  {kidsQuantity.length}
+                  {kidsQuantity?.length}
                 </p>
               </div>
             </div>
@@ -73,7 +73,7 @@ const Categories = ({ data }) => {
               <div className="absolute bg-white   rounded-xl bottom-2 left-2 flex flex-col text-center">
                 <p className="font-bold text-sm lg:text-base lg:w-24">Men</p>
                 <p className="bg-gray-900 text-sm text-slate-50 px-6 rounded-b-xl">
-                  {menQuantity.length}
+                  {menQuantity?.length}
                 </p>
               </div>
             </div>
@@ -92,7 +92,7 @@ const Categories = ({ data }) => {
               <div className="absolute bg-white rounded-xl bottom-2 left-2 flex flex-col text-center">
                 <p className="font-bold text-sm lg:text-base lg:w-24">Women</p>
                 <p className="bg-gray-900 text-sm text-slate-50 px-6 rounded-b-xl">
-                  {womenQuantity.length}
+                  {womenQuantity?.length}
                 </p>
               </div>
             </div>

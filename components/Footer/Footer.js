@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import {
   IoLogoInstagram,
@@ -9,13 +10,23 @@ import {
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center mt-10 py-6 ">
+    <div className="flex flex-col justify-center items-center mt-10 py-6 bg-white">
       <div className="flex justify-center items-center space-x-4 text-sm text-gray-500 lg:text-lg">
-        <p>About</p>
-        <p>Blog</p>
-        <p>Shop</p>
-        <p>Contact us</p>
-        <p>Partners</p>
+        <Link href="/about">
+          <span className="cursor-pointer">About</span>
+        </Link>
+        <Link href="/blog">
+          <span className="cursor-pointer">Blog</span>
+        </Link>
+        <Link href="/shop">
+          <span className="cursor-pointer">Shop</span>
+        </Link>
+        <Link href="/contact">
+          <span className="cursor-pointer">Contact us</span>
+        </Link>
+        <Link href="/partners">
+          <span className="cursor-pointer">Partners</span>
+        </Link>
       </div>
       <div className="flex justify-center items-center space-x-2 pt-6 text-md lg:text-lg">
         <i>
@@ -35,9 +46,9 @@ const Footer = () => {
         </i>
       </div>
       <div className="flex justify-center items-center">
-        <p className="flex mb-12 text-xs mt-5 lg:text-base ">
+        <span className="flex mb-12 text-xs mt-5 lg:text-base ">
           All Rights Reserved
-        </p>
+        </span>
       </div>
     </div>
   )

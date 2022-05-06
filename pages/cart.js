@@ -3,7 +3,7 @@ import CartComponent from "../components/CartComponent/CartComponent"
 
 const CartPage = () => {
   return (
-    <div className="bg-gray-100 h-full">
+    <div>
       <CartComponent />
     </div>
   )

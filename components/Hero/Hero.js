@@ -1,8 +1,5 @@
 import React from "react"
-import EmblaCarousel from "./EmblaCarousel/EmblaCarousel"
-/* 
-const SLIDE_COUNT = 2
-const slides = Array.from(Array(SLIDE_COUNT).keys()) */
+import EmblaCarousel from "./EmblaCarousel"
 
 const Hero = () => {
   return (

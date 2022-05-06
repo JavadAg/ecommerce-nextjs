@@ -1,41 +1,30 @@
 import axios from "axios"
 import "../styles/globals.css"
-import App from "next/app"
 import store from "../redux/store"
 import { Provider } from "react-redux"
 import { persistStore } from "redux-persist"
 import { PersistGate } from "redux-persist/integration/react"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
-import Head from "next/head"
 
 let persistor = persistStore(store)
 
-function MyApp({ Component, appProps }) {
+function MyApp({ Component, pageProps, appProps }) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Head>
-          <title>Ecommerce</title>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
         <Header />
-        <Component appProps={appProps} />
+        <Component {...pageProps} appProps={appProps} />
         <Footer />
       </PersistGate>
     </Provider>
   )
 }
 
-MyApp.getInitialProps = async ({ ctx }) => {
+MyApp.getInitialProps = async (ctx) => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/data`)
-  const data = await res.data
 
-  return { appProps: data.data.reverse() }
+  const data = res.data
+  return { appProps: data.reverse() }
 }
 export default MyApp
