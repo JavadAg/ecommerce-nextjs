@@ -12,7 +12,7 @@ const productdetails = ({ postDetails }) => {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const res = await axios.get(
     `${process.env.NEXT_PUBLIC_URL}/api/data?id=${params.id}`
   )
@@ -23,12 +23,14 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export const getStaticPaths = async () => {
+//gives error on vercel deploy
+
+/* export const getStaticPaths = async () => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/data`)
 
   const data = await res.data
 
-  const paths = data?.map((item) => ({
+  const paths = data.map((item) => ({
     params: {
       id: item.id.toString()
     }
@@ -39,5 +41,5 @@ export const getStaticPaths = async () => {
     fallback: "blocking"
   }
 }
-
+ */
 export default productdetails
