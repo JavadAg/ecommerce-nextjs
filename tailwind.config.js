@@ -5,10 +5,11 @@ module.exports = {
     "./constants/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    fontFamily: {
-      sans: ["Quicksand", "sans-serif"]
-    },
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ["Quicksand", "sans-serif"]
+      }
+    }
   },
   plugins: []
 }
