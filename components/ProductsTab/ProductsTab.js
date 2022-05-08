@@ -59,7 +59,7 @@ const ProductTab = ({ data }) => {
                 onClick={() => {
                   router.push(`/shop/${item.id}`)
                 }}
-                className=" relative bg-[#F8F8F8] rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
+                className=" relative bg-white rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
               >
                 <div className="p-2">
                   {/* {item.tag == "New" && (
