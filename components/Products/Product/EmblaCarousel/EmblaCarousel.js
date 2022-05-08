@@ -5,7 +5,17 @@ import Image from "next/image"
 import { HiHeart } from "react-icons/hi"
 
 const EmblaCarousel = ({ slides, img }) => {
-  const media = [img[0], img[1]]
+  const media = [
+    img[0],
+    img[1],
+    img[2],
+    img[3],
+    img[4],
+    img[5],
+    img[6],
+    img[7],
+    img[8]
+  ]
   const mediaByIndex = (index) => media[index % media.length]
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [mainViewportRef, embla] = useEmblaCarousel({ skipSnaps: false })
@@ -46,9 +56,9 @@ const EmblaCarousel = ({ slides, img }) => {
           <div className="flex select-none ">
             {slides.map((index) => (
               <div className="min-w-full relative" key={index}>
-                <div className="relative overflow-hidden h-64 bg-gray-50 rounded-2xl">
+                <div className="relative overflow-hidden h-64 bg-white rounded-2xl">
                   <Image
-                    className="object-contain "
+                    className="object-contain"
                     src={mediaByIndex(index)}
                     layout="fill"
                     width="0"
