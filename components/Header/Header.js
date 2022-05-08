@@ -10,6 +10,7 @@ import {
 import MobileNavbar from "./Mobile/MobileNavbar"
 import MobileSidebar from "./Mobile/MobileSidebar"
 import { useSelector } from "react-redux"
+import Search from "../Search/Search"
 
 const Header = () => {
   const router = useRouter()
@@ -85,9 +86,7 @@ const Header = () => {
             <i className="cursor-pointer">
               <HiOutlineHeart />
             </i>
-            <i className="cursor-pointer">
-              <HiSearch />
-            </i>
+            <Search />
           </div>
         </div>
       </div>
