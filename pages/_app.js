@@ -6,6 +6,7 @@ import { persistStore } from "redux-persist"
 import { PersistGate } from "redux-persist/integration/react"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
+import "@fontsource/quicksand"
 
 let persistor = persistStore(store)
 
