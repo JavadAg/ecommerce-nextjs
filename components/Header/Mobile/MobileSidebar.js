@@ -8,7 +8,7 @@ const MobileSidebar = () => {
   return (
     <div className="sm:hidden">
       <button
-        className="flex justify-center items-center  relative w-9"
+        className="flex justify-center items-center relative "
         onClick={() => setOpen(!open)}
       >
         <HiMenuAlt2 />
