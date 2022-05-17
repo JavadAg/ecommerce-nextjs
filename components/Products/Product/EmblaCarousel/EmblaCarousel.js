@@ -48,7 +48,7 @@ const EmblaCarousel = ({ slides, img }) => {
 
   return (
     <>
-      <div className="relative p-2 max-w-2xl ml-auto mr-auto w-full">
+      <div className="relative max-w-2xl w-full">
         <div className="absolute right-2 top-4 w-10 h-5 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-300 active:text-red-500 z-10 lg:text-3xl">
           <HiHeart />
         </div>
@@ -56,11 +56,11 @@ const EmblaCarousel = ({ slides, img }) => {
           <div className="flex select-none ">
             {slides.map((index) => (
               <div className="min-w-full relative" key={index}>
-                <div className="relative overflow-hidden h-64 bg-white rounded-2xl">
+                <div className="relative overflow-hidden h-auto bg-white rounded-2xl border p-2  border-gray-500/20">
                   <Image
-                    className="object-contain"
+                    className="object-contain rounded-xl"
                     src={mediaByIndex(index)}
-                    layout="fill"
+                    layout="responsive"
                     width="0"
                     height="0"
                     alt="A cool shoe."
@@ -71,10 +71,9 @@ const EmblaCarousel = ({ slides, img }) => {
           </div>
         </div>
       </div>
-
-      <div className="relative bg-slate-200 py-2 max-w-2xl w-full">
+      <div className="relative py-2 w-full bg-white rounded-2xl border  mt-4 border-gray-500/20">
         <div className="overflow-hidden w-full" ref={thumbViewportRef}>
-          <div className="flex cursor-default ">
+          <div className="flex cursor-default   shadow-sm">
             {slides.map((index) => (
               <Thumb
                 onClick={() => onThumbClick(index)}
