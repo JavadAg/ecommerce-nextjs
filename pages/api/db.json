@@ -1,526 +1,539 @@
 [
   {
-    "id": 1,
-    "brand": "Nike",
-    "name": "DUNKLOWRETRO",
-    "price": 216,
-    "sold": 1,
-    "type": "men",
-    "img": [
-      "/productsImage/1/1 (1).jpeg",
-      "/productsImage/1/1 (2).jpeg",
-      "/productsImage/1/1 (3).jpeg",
-      "/productsImage/1/1 (4).jpeg",
-      "/productsImage/1/1 (5).jpeg",
-      "/productsImage/1/1 (6).jpeg",
-      "/productsImage/1/1 (7).jpeg",
-      "/productsImage/1/1 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
+    "users": {
+      "id": 1,
+      "username": "test",
+      "password": "test",
+      "firstName": "Test",
+      "lastName": "User"
+    }
   },
   {
-    "id": 2,
-    "brand": "Jordan",
-    "name": "AIRJORDAN7SE",
-    "price": 372,
-    "sold": 23,
-    "type": "men",
-    "img": [
-      "/productsImage/2/2 (1).jpeg",
-      "/productsImage/2/2 (2).jpeg",
-      "/productsImage/2/2 (3).jpeg",
-      "/productsImage/2/2 (4).jpeg",
-      "/productsImage/2/2 (5).jpeg",
-      "/productsImage/2/2 (6).jpeg",
-      "/productsImage/2/2 (7).jpeg",
-      "/productsImage/2/2 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 3,
-    "brand": "NEWBALANCE",
-    "name": "NEWBALANCE2002R",
-    "price": 378,
-    "sold": 23,
-    "type": "men",
-    "img": [
-      "/productsImage/3/3 (1).jpeg",
-      "/productsImage/3/3 (2).jpeg",
-      "/productsImage/3/3 (3).jpeg",
-      "/productsImage/3/3 (4).jpeg",
-      "/productsImage/3/3 (5).jpeg",
-      "/productsImage/3/3 (6).jpeg",
-      "/productsImage/3/3 (7).jpeg",
-      "/productsImage/3/3 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 4,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN1HIGH85",
-    "price": 523,
-    "sold": 12,
-    "type": "men",
-    "img": [
-      "/productsImage/4/4 (1).jpeg",
-      "/productsImage/4/4 (2).jpeg",
-      "/productsImage/4/4 (3).jpeg",
-      "/productsImage/4/4 (4).jpeg",
-      "/productsImage/4/4 (5).jpeg",
-      "/productsImage/4/4 (6).jpeg",
-      "/productsImage/4/4 (7).jpeg",
-      "/productsImage/4/4 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 5,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN5RETRO",
-    "price": 353,
-    "sold": 11,
-    "discountedPrice": 352.99,
-    "type": "men",
-    "img": [
-      "/productsImage/5/5 (1).jpeg",
-      "/productsImage/5/5 (2).jpeg",
-      "/productsImage/5/5 (3).jpeg",
-      "/productsImage/5/5 (4).jpeg",
-      "/productsImage/5/5 (5).jpeg",
-      "/productsImage/5/5 (6).jpeg",
-      "/productsImage/5/5 (7).jpeg",
-      "/productsImage/5/5 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 6,
-    "brand": "Nike",
-    "name": "DUNKLOW",
-    "price": 543,
-    "sold": 43,
-    "type": "men",
-    "img": [
-      "/productsImage/6/6 (1).jpeg",
-      "/productsImage/6/6 (2).jpeg",
-      "/productsImage/6/6 (3).jpeg",
-      "/productsImage/6/6 (4).jpeg",
-      "/productsImage/6/6 (5).jpeg",
-      "/productsImage/6/6 (6).jpeg",
-      "/productsImage/6/6 (7).jpeg",
-      "/productsImage/6/6 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 7,
-    "brand": "ADIDASYEEZY",
-    "name": "YEEZY350V2",
-    "price": 529,
-    "sold": 23,
-    "type": "men",
-    "img": [
-      "/productsImage/7/7 (1).jpeg",
-      "/productsImage/7/7 (2).jpeg",
-      "/productsImage/7/7 (3).jpeg",
-      "/productsImage/7/7 (4).jpeg",
-      "/productsImage/7/7 (5).jpeg",
-      "/productsImage/7/7 (6).jpeg",
-      "/productsImage/7/7 (7).jpeg",
-      "/productsImage/7/7 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 8,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN12RETRO",
-    "price": 353,
-    "type": "men",
-    "sold": 23,
-    "img": [
-      "/productsImage/8/8 (1).jpeg",
-      "/productsImage/8/8 (2).jpeg",
-      "/productsImage/8/8 (3).jpeg",
-      "/productsImage/8/8 (4).jpeg",
-      "/productsImage/8/8 (5).jpeg",
-      "/productsImage/8/8 (6).jpeg",
-      "/productsImage/8/8 (7).jpeg",
-      "/productsImage/8/8 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 9,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN11RETRO",
-    "price": 216,
-    "sold": 32,
-    "discountedPrice": 215.99,
-    "type": "women",
-    "img": [
-      "/productsImage/9/9 (1).jpeg",
-      "/productsImage/9/9 (2).jpeg",
-      "/productsImage/9/9 (3).jpeg",
-      "/productsImage/9/9 (4).jpeg",
-      "/productsImage/9/9 (5).jpeg",
-      "/productsImage/9/9 (6).jpeg",
-      "/productsImage/9/9 (7).jpeg",
-      "/productsImage/9/9 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 10,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN3",
-    "price": 327,
-    "type": "women",
-    "sold": 3,
-    "img": [
-      "/productsImage/10/10 (1).jpeg",
-      "/productsImage/10/10 (2).jpeg",
-      "/productsImage/10/10 (3).jpeg",
-      "/productsImage/10/10 (4).jpeg",
-      "/productsImage/10/10 (5).jpeg",
-      "/productsImage/10/10 (6).jpeg",
-      "/productsImage/10/10 (7).jpeg",
-      "/productsImage/10/10 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 0 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 0 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 11,
-    "brand": "Nike",
-    "name": "AIRFORCE1LOW'07",
-    "price": 316,
-    "sold": 77,
-    "type": "women",
-    "img": [
-      "/productsImage/11/11 (1).jpeg",
-      "/productsImage/11/11 (2).jpeg",
-      "/productsImage/11/11 (3).jpeg",
-      "/productsImage/11/11 (4).jpeg",
-      "/productsImage/11/11 (5).jpeg",
-      "/productsImage/11/11 (6).jpeg",
-      "/productsImage/11/11 (7).jpeg",
-      "/productsImage/11/11 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 12,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN1HIGHOG",
-    "price": 23,
-    "sold": 53,
-    "discountedPrice": 22.99,
-    "type": "women",
-    "img": [
-      "/productsImage/12/12 (1).jpeg",
-      "/productsImage/12/12 (2).jpeg",
-      "/productsImage/12/12 (3).jpeg",
-      "/productsImage/12/12 (4).jpeg",
-      "/productsImage/12/12 (5).jpeg",
-      "/productsImage/12/12 (6).jpeg",
-      "/productsImage/12/12 (7).jpeg",
-      "/productsImage/12/12 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 13,
-    "brand": "Nike",
-    "name": "BLAZERLOW",
-    "price": 283,
-    "type": "women",
-    "sold": 23,
-    "img": [
-      "/productsImage/13/13 (1).jpeg",
-      "/productsImage/13/13 (2).jpeg",
-      "/productsImage/13/13 (3).jpeg",
-      "/productsImage/13/13 (4).jpeg",
-      "/productsImage/13/13 (5).jpeg",
-      "/productsImage/13/13 (6).jpeg",
-      "/productsImage/13/13 (7).jpeg",
-      "/productsImage/13/13 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 14,
-    "brand": "ADIDASYEEZY",
-    "name": "YEEZYBOOST350V2",
-    "price": 426,
-    "sold": 4,
-    "type": "women",
-    "img": [
-      "/productsImage/14/14 (1).jpeg",
-      "/productsImage/14/14 (2).jpeg",
-      "/productsImage/14/14 (3).jpeg",
-      "/productsImage/14/14 (4).jpeg",
-      "/productsImage/14/14 (5).jpeg",
-      "/productsImage/14/14 (6).jpeg",
-      "/productsImage/14/14 (7).jpeg",
-      "/productsImage/14/14 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 15,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN13RETRO",
-    "price": 365,
-    "type": "kids",
-    "sold": 11,
-    "discountedPrice": 364.99,
-    "img": [
-      "/productsImage/15/15 (1).jpeg",
-      "/productsImage/15/15 (2).jpeg",
-      "/productsImage/15/15 (3).jpeg",
-      "/productsImage/15/15 (4).jpeg",
-      "/productsImage/15/15 (5).jpeg",
-      "/productsImage/15/15 (6).jpeg",
-      "/productsImage/15/15 (7).jpeg",
-      "/productsImage/15/15 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 16,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN6RETRO",
-    "price": 405,
-    "sold": 21,
-    "type": "kids",
-    "img": [
-      "/productsImage/16/16 (1).jpeg",
-      "/productsImage/16/16 (2).jpeg",
-      "/productsImage/16/16 (3).jpeg",
-      "/productsImage/16/16 (4).jpeg",
-      "/productsImage/16/16 (5).jpeg",
-      "/productsImage/16/16 (6).jpeg",
-      "/productsImage/16/16 (7).jpeg",
-      "/productsImage/16/16 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 17,
-    "brand": "JORDAN",
-    "name": "AIRJORDAN3",
-    "price": 437,
-    "sold": 5,
-    "type": "kids",
-    "img": [
-      "/productsImage/17/17 (1).jpeg",
-      "/productsImage/17/17 (2).jpeg",
-      "/productsImage/17/17 (3).jpeg",
-      "/productsImage/17/17 (4).jpeg",
-      "/productsImage/17/17 (5).jpeg",
-      "/productsImage/17/17 (6).jpeg",
-      "/productsImage/17/17 (7).jpeg",
-      "/productsImage/17/17 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 18,
-    "brand": "ADIDASYEEZY",
-    "name": "YEEZY450",
-    "price": 422,
-    "sold": 43,
-    "type": "kids",
-    "img": [
-      "/productsImage/18/18 (1).jpeg",
-      "/productsImage/18/18 (2).jpeg",
-      "/productsImage/18/18 (3).jpeg",
-      "/productsImage/18/18 (4).jpeg",
-      "/productsImage/18/18 (5).jpeg",
-      "/productsImage/18/18 (6).jpeg",
-      "/productsImage/18/18 (7).jpeg",
-      "/productsImage/18/18 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 19,
-    "brand": "ADIDASYEEZY",
-    "name": "YEEZY700V3",
-    "price": 408,
-    "sold": 6,
-    "type": "kids",
-    "img": [
-      "/productsImage/19/19 (1).jpeg",
-      "/productsImage/19/19 (2).jpeg",
-      "/productsImage/19/19 (3).jpeg",
-      "/productsImage/19/19 (4).jpeg",
-      "/productsImage/19/19 (5).jpeg",
-      "/productsImage/19/19 (6).jpeg",
-      "/productsImage/19/19 (7).jpeg",
-      "/productsImage/19/19 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
-    ]
-  },
-  {
-    "id": 20,
-    "brand": "Nike",
-    "name": "WMNSAIRFORCE1LOW",
-    "price": 171,
-    "sold": 4,
-    "type": "kids",
-    "img": [
-      "/productsImage/20/20 (1).jpeg",
-      "/productsImage/20/20 (2).jpeg",
-      "/productsImage/20/20 (3).jpeg",
-      "/productsImage/20/20 (4).jpeg",
-      "/productsImage/20/20 (5).jpeg",
-      "/productsImage/20/20 (6).jpeg",
-      "/productsImage/20/20 (7).jpeg",
-      "/productsImage/20/20 (8).jpeg"
-    ],
-    "sizes": [
-      { "size": 40, "quantity": 5 },
-      { "size": 41, "quantity": 5 },
-      { "size": 42, "quantity": 5 },
-      { "size": 43, "quantity": 5 },
-      { "size": 44, "quantity": 5 },
-      { "size": 45, "quantity": 5 }
+    "products": [
+      {
+        "id": 1,
+        "brand": "Nike",
+        "name": "DUNKLOWRETRO",
+        "price": 216,
+        "sold": 1,
+        "type": "men",
+        "img": [
+          "/productsImage/1/1 (1).jpeg",
+          "/productsImage/1/1 (2).jpeg",
+          "/productsImage/1/1 (3).jpeg",
+          "/productsImage/1/1 (4).jpeg",
+          "/productsImage/1/1 (5).jpeg",
+          "/productsImage/1/1 (6).jpeg",
+          "/productsImage/1/1 (7).jpeg",
+          "/productsImage/1/1 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 2,
+        "brand": "Jordan",
+        "name": "AIRJORDAN7SE",
+        "price": 372,
+        "sold": 23,
+        "type": "men",
+        "img": [
+          "/productsImage/2/2 (1).jpeg",
+          "/productsImage/2/2 (2).jpeg",
+          "/productsImage/2/2 (3).jpeg",
+          "/productsImage/2/2 (4).jpeg",
+          "/productsImage/2/2 (5).jpeg",
+          "/productsImage/2/2 (6).jpeg",
+          "/productsImage/2/2 (7).jpeg",
+          "/productsImage/2/2 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 3,
+        "brand": "NEWBALANCE",
+        "name": "NEWBALANCE2002R",
+        "price": 378,
+        "sold": 23,
+        "type": "men",
+        "img": [
+          "/productsImage/3/3 (1).jpeg",
+          "/productsImage/3/3 (2).jpeg",
+          "/productsImage/3/3 (3).jpeg",
+          "/productsImage/3/3 (4).jpeg",
+          "/productsImage/3/3 (5).jpeg",
+          "/productsImage/3/3 (6).jpeg",
+          "/productsImage/3/3 (7).jpeg",
+          "/productsImage/3/3 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 4,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN1HIGH85",
+        "price": 523,
+        "sold": 12,
+        "type": "men",
+        "img": [
+          "/productsImage/4/4 (1).jpeg",
+          "/productsImage/4/4 (2).jpeg",
+          "/productsImage/4/4 (3).jpeg",
+          "/productsImage/4/4 (4).jpeg",
+          "/productsImage/4/4 (5).jpeg",
+          "/productsImage/4/4 (6).jpeg",
+          "/productsImage/4/4 (7).jpeg",
+          "/productsImage/4/4 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 5,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN5RETRO",
+        "price": 353,
+        "sold": 11,
+        "discountedPrice": 352.99,
+        "type": "men",
+        "img": [
+          "/productsImage/5/5 (1).jpeg",
+          "/productsImage/5/5 (2).jpeg",
+          "/productsImage/5/5 (3).jpeg",
+          "/productsImage/5/5 (4).jpeg",
+          "/productsImage/5/5 (5).jpeg",
+          "/productsImage/5/5 (6).jpeg",
+          "/productsImage/5/5 (7).jpeg",
+          "/productsImage/5/5 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 6,
+        "brand": "Nike",
+        "name": "DUNKLOW",
+        "price": 543,
+        "sold": 43,
+        "type": "men",
+        "img": [
+          "/productsImage/6/6 (1).jpeg",
+          "/productsImage/6/6 (2).jpeg",
+          "/productsImage/6/6 (3).jpeg",
+          "/productsImage/6/6 (4).jpeg",
+          "/productsImage/6/6 (5).jpeg",
+          "/productsImage/6/6 (6).jpeg",
+          "/productsImage/6/6 (7).jpeg",
+          "/productsImage/6/6 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 7,
+        "brand": "ADIDASYEEZY",
+        "name": "YEEZY350V2",
+        "price": 529,
+        "sold": 23,
+        "type": "men",
+        "img": [
+          "/productsImage/7/7 (1).jpeg",
+          "/productsImage/7/7 (2).jpeg",
+          "/productsImage/7/7 (3).jpeg",
+          "/productsImage/7/7 (4).jpeg",
+          "/productsImage/7/7 (5).jpeg",
+          "/productsImage/7/7 (6).jpeg",
+          "/productsImage/7/7 (7).jpeg",
+          "/productsImage/7/7 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 8,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN12RETRO",
+        "price": 353,
+        "type": "men",
+        "sold": 23,
+        "img": [
+          "/productsImage/8/8 (1).jpeg",
+          "/productsImage/8/8 (2).jpeg",
+          "/productsImage/8/8 (3).jpeg",
+          "/productsImage/8/8 (4).jpeg",
+          "/productsImage/8/8 (5).jpeg",
+          "/productsImage/8/8 (6).jpeg",
+          "/productsImage/8/8 (7).jpeg",
+          "/productsImage/8/8 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 9,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN11RETRO",
+        "price": 216,
+        "sold": 32,
+        "discountedPrice": 215.99,
+        "type": "women",
+        "img": [
+          "/productsImage/9/9 (1).jpeg",
+          "/productsImage/9/9 (2).jpeg",
+          "/productsImage/9/9 (3).jpeg",
+          "/productsImage/9/9 (4).jpeg",
+          "/productsImage/9/9 (5).jpeg",
+          "/productsImage/9/9 (6).jpeg",
+          "/productsImage/9/9 (7).jpeg",
+          "/productsImage/9/9 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 10,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN3",
+        "price": 327,
+        "type": "women",
+        "sold": 3,
+        "img": [
+          "/productsImage/10/10 (1).jpeg",
+          "/productsImage/10/10 (2).jpeg",
+          "/productsImage/10/10 (3).jpeg",
+          "/productsImage/10/10 (4).jpeg",
+          "/productsImage/10/10 (5).jpeg",
+          "/productsImage/10/10 (6).jpeg",
+          "/productsImage/10/10 (7).jpeg",
+          "/productsImage/10/10 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 0 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 0 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 11,
+        "brand": "Nike",
+        "name": "AIRFORCE1LOW'07",
+        "price": 316,
+        "sold": 77,
+        "type": "women",
+        "img": [
+          "/productsImage/11/11 (1).jpeg",
+          "/productsImage/11/11 (2).jpeg",
+          "/productsImage/11/11 (3).jpeg",
+          "/productsImage/11/11 (4).jpeg",
+          "/productsImage/11/11 (5).jpeg",
+          "/productsImage/11/11 (6).jpeg",
+          "/productsImage/11/11 (7).jpeg",
+          "/productsImage/11/11 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 12,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN1HIGHOG",
+        "price": 23,
+        "sold": 53,
+        "discountedPrice": 22.99,
+        "type": "women",
+        "img": [
+          "/productsImage/12/12 (1).jpeg",
+          "/productsImage/12/12 (2).jpeg",
+          "/productsImage/12/12 (3).jpeg",
+          "/productsImage/12/12 (4).jpeg",
+          "/productsImage/12/12 (5).jpeg",
+          "/productsImage/12/12 (6).jpeg",
+          "/productsImage/12/12 (7).jpeg",
+          "/productsImage/12/12 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 13,
+        "brand": "Nike",
+        "name": "BLAZERLOW",
+        "price": 283,
+        "type": "women",
+        "sold": 23,
+        "img": [
+          "/productsImage/13/13 (1).jpeg",
+          "/productsImage/13/13 (2).jpeg",
+          "/productsImage/13/13 (3).jpeg",
+          "/productsImage/13/13 (4).jpeg",
+          "/productsImage/13/13 (5).jpeg",
+          "/productsImage/13/13 (6).jpeg",
+          "/productsImage/13/13 (7).jpeg",
+          "/productsImage/13/13 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 14,
+        "brand": "ADIDASYEEZY",
+        "name": "YEEZYBOOST350V2",
+        "price": 426,
+        "sold": 4,
+        "type": "women",
+        "img": [
+          "/productsImage/14/14 (1).jpeg",
+          "/productsImage/14/14 (2).jpeg",
+          "/productsImage/14/14 (3).jpeg",
+          "/productsImage/14/14 (4).jpeg",
+          "/productsImage/14/14 (5).jpeg",
+          "/productsImage/14/14 (6).jpeg",
+          "/productsImage/14/14 (7).jpeg",
+          "/productsImage/14/14 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 15,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN13RETRO",
+        "price": 365,
+        "type": "kids",
+        "sold": 11,
+        "discountedPrice": 364.99,
+        "img": [
+          "/productsImage/15/15 (1).jpeg",
+          "/productsImage/15/15 (2).jpeg",
+          "/productsImage/15/15 (3).jpeg",
+          "/productsImage/15/15 (4).jpeg",
+          "/productsImage/15/15 (5).jpeg",
+          "/productsImage/15/15 (6).jpeg",
+          "/productsImage/15/15 (7).jpeg",
+          "/productsImage/15/15 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 16,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN6RETRO",
+        "price": 405,
+        "sold": 21,
+        "type": "kids",
+        "img": [
+          "/productsImage/16/16 (1).jpeg",
+          "/productsImage/16/16 (2).jpeg",
+          "/productsImage/16/16 (3).jpeg",
+          "/productsImage/16/16 (4).jpeg",
+          "/productsImage/16/16 (5).jpeg",
+          "/productsImage/16/16 (6).jpeg",
+          "/productsImage/16/16 (7).jpeg",
+          "/productsImage/16/16 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 17,
+        "brand": "JORDAN",
+        "name": "AIRJORDAN3",
+        "price": 437,
+        "sold": 5,
+        "type": "kids",
+        "img": [
+          "/productsImage/17/17 (1).jpeg",
+          "/productsImage/17/17 (2).jpeg",
+          "/productsImage/17/17 (3).jpeg",
+          "/productsImage/17/17 (4).jpeg",
+          "/productsImage/17/17 (5).jpeg",
+          "/productsImage/17/17 (6).jpeg",
+          "/productsImage/17/17 (7).jpeg",
+          "/productsImage/17/17 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 18,
+        "brand": "ADIDASYEEZY",
+        "name": "YEEZY450",
+        "price": 422,
+        "sold": 43,
+        "type": "kids",
+        "img": [
+          "/productsImage/18/18 (1).jpeg",
+          "/productsImage/18/18 (2).jpeg",
+          "/productsImage/18/18 (3).jpeg",
+          "/productsImage/18/18 (4).jpeg",
+          "/productsImage/18/18 (5).jpeg",
+          "/productsImage/18/18 (6).jpeg",
+          "/productsImage/18/18 (7).jpeg",
+          "/productsImage/18/18 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 19,
+        "brand": "ADIDASYEEZY",
+        "name": "YEEZY700V3",
+        "price": 408,
+        "sold": 6,
+        "type": "kids",
+        "img": [
+          "/productsImage/19/19 (1).jpeg",
+          "/productsImage/19/19 (2).jpeg",
+          "/productsImage/19/19 (3).jpeg",
+          "/productsImage/19/19 (4).jpeg",
+          "/productsImage/19/19 (5).jpeg",
+          "/productsImage/19/19 (6).jpeg",
+          "/productsImage/19/19 (7).jpeg",
+          "/productsImage/19/19 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      },
+      {
+        "id": 20,
+        "brand": "Nike",
+        "name": "WMNSAIRFORCE1LOW",
+        "price": 171,
+        "sold": 4,
+        "type": "kids",
+        "img": [
+          "/productsImage/20/20 (1).jpeg",
+          "/productsImage/20/20 (2).jpeg",
+          "/productsImage/20/20 (3).jpeg",
+          "/productsImage/20/20 (4).jpeg",
+          "/productsImage/20/20 (5).jpeg",
+          "/productsImage/20/20 (6).jpeg",
+          "/productsImage/20/20 (7).jpeg",
+          "/productsImage/20/20 (8).jpeg"
+        ],
+        "sizes": [
+          { "size": 40, "quantity": 5 },
+          { "size": 41, "quantity": 5 },
+          { "size": 42, "quantity": 5 },
+          { "size": 43, "quantity": 5 },
+          { "size": 44, "quantity": 5 },
+          { "size": 45, "quantity": 5 }
+        ]
+      }
     ]
   }
 ]
