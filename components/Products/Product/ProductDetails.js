@@ -22,15 +22,19 @@ const ProductDetails = ({ data }) => {
   const slides = Array.from(Array(SLIDE_COUNT).keys())
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="w-full flex-col flex justify-around items-center">
+    <div className="flex justify-center items-center ">
+      <div className="w-full mx-2 my-2 flex-col flex justify-around items-center">
         <EmblaCarousel slides={slides} img={img} />
         <div className="flex justify-center items-center flex-col space-y-4">
-          <span>{name}</span>
-          <span>{brand}</span>
+          <span className="text-lg rounded-2xl font-bold mt-4 text-gray-50 bg-red-400 w-full text-center">
+            {name}
+          </span>
+          <span className="text-md rounded-2xl  font-bold bg-white text-red-400/80 w-full text-center">
+            {brand}
+          </span>
           <div className="space-x-1 flex items-center justify-center">
             <span
-              className={`text-sm font-medium my-1 text-slate-700 space-x-1 lg:text-base ${
+              className={`text-2xl font-bold my-1 text-slate-700 space-x-1 lg:text-base ${
                 discountedPrice && "line-through"
               }`}
             >
@@ -42,7 +46,7 @@ const ProductDetails = ({ data }) => {
               </span>
             )}
           </div>
-          <span>{type}</span>
+          <span className="text-md font-medium">For : {type}</span>
           <div className="flex justify-center items-center space-x-2">
             <i>
               <BsStarFill />
@@ -74,8 +78,8 @@ const ProductDetails = ({ data }) => {
                     <button
                       onClick={(e) => setSelectedSize(obj)}
                       disabled={obj.quantity == 0 ? true : false}
-                      className={`bg-gray-100 w-8 h-8 rounded-xl focus:bg-gray-300 text-center disabled:opacity-40   ${
-                        selectedSize === obj && "bg-gray-300"
+                      className={`bg-gray-100 w-8 h-8 rounded-xl focus:bg-gray-200 text-center disabled:opacity-40   ${
+                        selectedSize === obj && "bg-gray-200"
                       } `}
                     >
                       {obj.size}
@@ -106,7 +110,7 @@ const ProductDetails = ({ data }) => {
             </button>
             <button
               onClick={() => handleCart()}
-              className="px-2 py-1 ml-2 bg-gray-100 rounded-xl text-sm font-medium"
+              className="px-2 py-1 ml-2 bg-red-400 text-gray-50 rounded-xl text-sm font-medium"
             >
               Add to Cart
             </button>
