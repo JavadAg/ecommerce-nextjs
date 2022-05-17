@@ -29,14 +29,19 @@ const Header = () => {
   return (
     <div>
       <MobileNavbar />
-      <div className="flex z-50 justify-center items-center w-full h-[calc(20px+5vh)] fixed">
+      <div className="flex z-50 justify-center items-center w-full h-16  fixed">
         <div
-          className={`bg-white  flex flex-row-reverse  justify-between items-center absolute bottom-0 h-[calc(10px+4vh)] px-2 shadow-md sm:flex-row md:px-4 ${
-            sticky ? " top-0 left-0 right-0 w-full " : "rounded-xl w-11/12 "
+          className={`bg-white flex flex-row-reverse justify-between items-center  bottom-0 h-[calc(10px+4vh)] px-3 shadow-md sm:flex-row  md:px-4 ${
+            sticky
+              ? "absolute top-0 left-0 right-0 w-full "
+              : "rounded-xl w-full mx-2"
           }`}
         >
           <Link href="/">
-            <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-600 relative inline-block cursor-pointer">
+            <span
+              className="before:block before:absolute before:-inset-0 before:-mx-1 
+            before:-skew-y-3 before:bg-red-400 relative inline-block cursor-pointer"
+            >
               <span className="font-black text-white relative italic lg:text-lg xl:text-xl">
                 HappyFeet
               </span>
