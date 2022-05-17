@@ -15,7 +15,9 @@ function MyApp({ Component, pageProps, appProps }) {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Header />
-        <Component {...pageProps} appProps={appProps} />
+        <div className="bg-gray-50">
+          <Component {...pageProps} appProps={appProps} />
+        </div>
         <Footer />
       </PersistGate>
     </Provider>
