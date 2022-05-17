@@ -67,12 +67,11 @@ const ProductTab = ({ data }) => {
                       {item.tag}
                     </div>
                   )} */}
-                  <div className="absolute  right-2 w-10 h-5 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl">
+                  <div className="absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl">
                     <HiHeart />
                   </div>
-
                   <Image
-                    className="object-center object-contain hover:rotate-12  transition-all ease-in-out duration-500 "
+                    className="object-contain hover:rotate-12 transition-all ease-in-out duration-500"
                     layout="responsive"
                     width="0"
                     height="0"
@@ -80,23 +79,24 @@ const ProductTab = ({ data }) => {
                     alt={item.name}
                   />
                 </div>
-                <div className="mt-4 flex justify-center items-center flex-col">
-                  <span className="text-sm opacity-80 font-medium lg:font-bold lg:text-base">
-                    {item.brand}
-                  </span>
-                  <span className="text-xs opacity-70 font-medium lg:text-sm">
+                <div className="mt-4 flex justify-center items-center flex-col space-y-1">
+                  <span className="text-sm p-1 rounded-2xl text-gray-500 font-semibold">
                     {item.name}
                   </span>
+                  <span className="text-xs text-red-700 font-medium ">
+                    {item.brand}
+                  </span>
+
                   <div className="space-x-1 flex items-center justify-center">
                     <span
-                      className={`text-sm font-medium my-1 text-slate-700 space-x-1 lg:text-base ${
-                        item.discountedPrice && "line-through"
+                      className={`text-sm font-semibold bg-red-400 px-2 rounded-2xl  my-1 text-gray-100 space-x-1 lg:text-base ${
+                        item.discountedPrice && "line-through bg-gray-500"
                       }`}
                     >
                       {item.price}$
                     </span>
                     {item.discountedPrice && (
-                      <span className="text-sm font-medium my-1 text-slate-700 space-x-1 lg:text-base">
+                      <span className="text-sm font-semibold my-1 space-x-1 lg:text-base bg-red-400 px-2 rounded-2xl text-gray-100">
                         {item.discountedPrice}$
                       </span>
                     )}
