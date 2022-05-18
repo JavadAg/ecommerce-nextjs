@@ -10,17 +10,21 @@ const Products = ({ data }) => {
 
   return (
     <>
-      <div className="bg-gray-100 ">
+      <div>
         <div className="flex flex-col justify-center items-center ">
           <div className=" py-6 px-4 md:px-10 w-full mt-24 xl:px-36">
             <div className="grid grid-cols-2 grid-rows-2 gap-y-10 gap-x-4 md:grid-cols-3 xl:grid-cols-4">
               {data?.map((item) => (
                 <div
                   onClick={() => {
-                    router.push(`/shop/${item.id}`)
+                    router.push(`/shop/${item.id}`),
+                      undefined,
+                      {
+                        shallow: true
+                      }
                   }}
                   key={item.id}
-                  className=" relative bg-[#F8F8F8] rounded-2xl hover:ring-2 ring-indigo-400 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
+                  className=" relative bg-white rounded-2xl hover:ring-2 ring-indigo-400 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
                 >
                   <div className="p-2">
                     <Image
