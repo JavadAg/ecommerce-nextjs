@@ -11,6 +11,7 @@ import MobileNavbar from "./Mobile/MobileNavbar"
 import MobileSidebar from "./Mobile/MobileSidebar"
 import { useSelector } from "react-redux"
 import Search from "../Search/Search"
+import UserAuth from "../UserAuth/UserAuth"
 
 const Header = () => {
   const router = useRouter()
@@ -71,9 +72,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="hidden sm:flex text-lg gap-2 md:text-xl lg:text-2xl xl:text-2xl">
-            <i className="cursor-pointer">
-              <HiOutlineUser />
-            </i>
+            <UserAuth />
             <Link href="/cart">
               <div className="relative">
                 {cart.length > 0 && (
