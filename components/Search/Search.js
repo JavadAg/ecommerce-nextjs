@@ -26,7 +26,6 @@ export default function Search() {
       setResults([])
     }
   }
-  console.log(results)
   const onFocus = useCallback(() => {
     setActive(true)
     window.addEventListener("click", onClick)
