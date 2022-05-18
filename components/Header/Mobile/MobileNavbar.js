@@ -10,13 +10,9 @@ import {
 import Link from "next/link"
 import { useSelector } from "react-redux"
 import Search from "../../Search/Search"
+import UserAuth from "../../UserAuth/UserAuth"
 
 const navItems = [
-  {
-    name: "Profile",
-    icon: <HiOutlineUser />,
-    href: "/profile"
-  },
   {
     name: "Cart",
     icon: <HiOutlineShoppingCart />,
@@ -38,7 +34,6 @@ const MobileNavbar = () => {
   const cart = useSelector((state) => state.cart)
   const router = useRouter()
   const [active, setActive] = useState(navItems[2])
-  console.log(active)
   return (
     <div className="flex sm:hidden z-50 w-full justify-center items-center fixed bottom-2">
       <ul className=" rounded-3xl bg-white border-2 border-red-400/20 flex justify-center  items-center w-[90%] ">
@@ -53,6 +48,18 @@ const MobileNavbar = () => {
             {cart.length}
           </div>
         )}
+        <li
+          onClick={() => setActive("User")}
+          className="w-full px-2 flex justify-center items-center h-12"
+        >
+          <i
+            className={` flex justify-center items-center text-2xl p-3  absolute duration-300  ${
+              active == "User" ? "" : ""
+            }`}
+          >
+            <UserAuth />
+          </i>
+        </li>
         {navItems.map((item) => (
           <li
             onClick={() => setActive(item)}
@@ -81,6 +88,7 @@ const MobileNavbar = () => {
             </Link>
           </li>
         ))}
+
         <li
           onClick={() => setActive("Search")}
           className="w-full px-2 flex justify-center items-center h-12"
@@ -92,14 +100,6 @@ const MobileNavbar = () => {
           >
             <Search />
           </i>
-
-          {/* <span
-            className={`flex justify-center items-center absolute font-bold text-sm duration-300 transition-opacity ease-in-out ${
-              router.pathname == "search" ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            Search
-          </span> */}
         </li>
       </ul>
     </div>
