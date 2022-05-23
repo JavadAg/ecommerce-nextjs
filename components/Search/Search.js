@@ -9,9 +9,6 @@ export default function Search() {
   const [active, setActive] = useState(false)
   const [results, setResults] = useState([])
 
-  const searchEndpoint = (query) =>
-    `${process.env.NEXT_PUBLIC_URL}/api/search?q=${query}`
-
   const onChange = async (e) => {
     const query = e.target.value
     setQuery(query)
