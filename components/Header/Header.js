@@ -46,10 +46,14 @@ const Header = () => {
           </Link>
           <div className="flex justify-center items-center">
             <MobileSidebar />
-            <div className="font-semibold text-sm ml-2">Hello</div>
-            <div className="font-semibold text-sm ml-1 text-red-500">
-              {session.user.name}
-            </div>
+            {session?.user?.name && (
+              <>
+                <div className="font-semibold text-sm ml-2">Hello</div>
+                <div className="font-semibold text-sm ml-1 text-red-500">
+                  {session?.user?.name}
+                </div>
+              </>
+            )}
           </div>
           <div className="hidden sm:flex">
             <ul className="hidden text-sm font-semibold gap-2 sm:flex md:text-md lg:text-lg xl:text-lg md:gap-4 xl:gap-8">
