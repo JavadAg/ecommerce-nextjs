@@ -1,4 +1,4 @@
-import * as jose from "jose"
+/* import * as jose from "jose"
 import { serialize } from "cookie"
 import data from "../db.json"
 
@@ -34,3 +34,4 @@ export default async function (req, res) {
     res.status(200).json({ id, username })
   }
 }
+ */
