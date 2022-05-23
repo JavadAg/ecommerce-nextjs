@@ -32,7 +32,7 @@ export default NextAuth({
       }
     })
   ],
-
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
     maxAge: 60 * 60 * 24, // 1 day
@@ -41,6 +41,10 @@ export default NextAuth({
   jwt: {
     secret: process.env.NEXTAUTH_SECRET,
     encryption: true
+  },
+  pages: {
+    signIn: "/",
+    signOut: "/"
   },
 
   callbacks: {
