@@ -1,6 +1,7 @@
 import React from "react"
 import { HiX, HiMenuAlt2 } from "react-icons/hi"
 import Link from "next/link"
+import { signOut } from "next-auth/react"
 
 const MobileSidebar = () => {
   const [open, setOpen] = React.useState(false)
@@ -61,6 +62,14 @@ const MobileSidebar = () => {
                   Kids
                 </p>
               </Link>
+            </div>
+            <div
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="w-full"
+            >
+              <p className="hover:bg-white bg-gray-100 w-full p-2 rounded-2xl ">
+                Logout
+              </p>
             </div>
           </div>
         </div>
