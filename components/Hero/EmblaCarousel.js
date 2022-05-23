@@ -10,7 +10,7 @@ const slides = [
     img: "/banner1.png",
     imgMobile: "/banner1_mobile.png"
   },
-  { img: "/banner2.png", imgMobile: "/banner1_mobile.png" }
+  { img: "/banner2.png", imgMobile: "/banner2_mobile.png" }
 ]
 
 const EmblaCarousel = () => {
@@ -44,7 +44,7 @@ const EmblaCarousel = () => {
 
   return (
     <div>
-      <div className="relative rounded-lg p-1 flex justify-center items-center">
+      <div className="relative rounded-lg flex justify-center items-center">
         <div
           className="overflow-hidden w-full max-w-[2000px] "
           ref={viewportRef}
@@ -52,19 +52,19 @@ const EmblaCarousel = () => {
           <div className="flex">
             {slides.map((item, index) => (
               <div className="relative min-w-full" key={index}>
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden md:hidden">
                   <Image
-                    className="object-cover min-h-full max-h-[900px] min-w-full rounded-2xl "
+                    className="object-cover min-h-full max-h-[900px] min-w-full rounded-b-2xl"
                     src={item.imgMobile}
-                    width="2000"
+                    width="1200"
                     height="900"
                     layout="responsive"
                     alt="banner"
                   />
                 </div>
-                <div className="relative overflow-hidden hidden">
+                <div className="relative overflow-hidden hidden md:block">
                   <Image
-                    className="object-cover min-h-full max-h-[900px] min-w-full rounded-2xl "
+                    className="object-cover min-h-full max-h-[900px] min-w-full "
                     src={item.img}
                     width="2000"
                     height="900"
@@ -92,7 +92,7 @@ const EmblaCarousel = () => {
       </div>
       <div className="relative -mt-4 px-6 w-full">
         <div className="bg-white border shadow-sm space-y-2 py-2 px-2 rounded-2xl flex justify-around flex-col items-center ">
-          <span className="text-xl font-black text-red-400 ">
+          <span className="text-xl text-center font-black text-red-400 ">
             The Fashion of Champion
           </span>
           <p className="text-center text-sm text-gray-900/70">
