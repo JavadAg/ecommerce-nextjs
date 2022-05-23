@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 
 const ProductTab = ({ data }) => {
   const router = useRouter()
-  console.log(data)
   const tabs = [
     {
       name: "Price Drops",
