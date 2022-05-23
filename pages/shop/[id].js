@@ -23,23 +23,4 @@ export const getServerSideProps = async ({ params }) => {
   }
 }
 
-//gives error on vercel deploy
-
-/* export const getStaticPaths = async () => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/data`)
-
-  const data = await res.data
-
-  const paths = data.map((item) => ({
-    params: {
-      id: item.id.toString()
-    }
-  }))
-
-  return {
-    paths,
-    fallback: "blocking"
-  }
-}
- */
 export default productdetails
