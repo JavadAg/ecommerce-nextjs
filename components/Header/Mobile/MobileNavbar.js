@@ -52,13 +52,13 @@ const MobileNavbar = () => {
           onClick={() => setActive("User")}
           className="w-full px-2 flex justify-center items-center h-12"
         >
-          <i
+          <span
             className={` flex justify-center items-center text-2xl p-3  absolute duration-300  ${
               active == "User" ? "" : ""
             }`}
           >
             <UserAuth />
-          </i>
+          </span>
         </li>
         {navItems.map((item) => (
           <li
