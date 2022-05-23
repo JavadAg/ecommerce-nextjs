@@ -1,9 +1,8 @@
-import axios from "axios"
-import { useRouter } from "next/router"
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { HiOutlineUser } from "react-icons/hi"
 import { useDispatch } from "react-redux"
+import { signIn } from "next-auth/react"
 
 const UserAuth = () => {
   const [showModal, setShowModal] = useState(false)
@@ -12,10 +11,17 @@ const UserAuth = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors }
   } = useForm()
 
-  const onSubmit = async (data) => {}
+  const onSubmit = (data) =>
+    signIn("credentials", {
+      redirect: false,
+      username: watch("Username"),
+      password: watch("Password"),
+      callbackUrl: "/"
+    })
 
   return (
     <>
@@ -46,7 +52,6 @@ const UserAuth = () => {
             >
               Login
             </span>
-
             <form
               className="flex w-full flex-col justify-center items-center space-y-5"
               onSubmit={handleSubmit(onSubmit)}
