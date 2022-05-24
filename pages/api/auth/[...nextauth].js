@@ -1,34 +1,71 @@
 import NextAuth from "next-auth"
 import CredentialProvider from "next-auth/providers/credentials"
-import data from "../db.json"
+import bcrypt from "bcryptjs"
+import dbConnect from "../../../lib/dbConnect"
+import { User } from "../../../models/user"
 
 export default NextAuth({
   providers: [
     CredentialProvider({
-      name: "credential",
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: "Javad" },
-        password: { label: "Password", type: "password" }
-      },
-
       async authorize(credentials) {
-        const { username, password } = credentials
+        const { username, password, firstname, lastname, email, sign } =
+          credentials
 
-        if (!username || !password) {
-          throw new Error("Please enter username or password")
+        await dbConnect()
+
+        switch (sign) {
+          //case register
+          case "true":
+            try {
+              if (!username || !password || !firstname || !lastname || !email) {
+                throw new Error("Please fill all fields")
+              }
+              const exist = await User.findOne({ email })
+
+              if (exist) {
+                throw new Error("user already exists")
+              }
+              const hashedPassword = await bcrypt.hash(password, 10)
+              const user = await User.create({
+                username,
+                password: hashedPassword,
+                firstname,
+                lastname,
+                email
+              })
+              return { id: user.id, name: user.username }
+            } catch (error) {
+              console.log(error.message)
+            }
+            break
+          case "false":
+            //case login
+            try {
+              if (!username || !password) {
+                throw new Error("Please enter username or password")
+              }
+              const exist = await User.findOne({ username })
+
+              if (!exist) {
+                throw new Error("user not exist")
+              } else {
+                const isPasswordsValid = await bcrypt.compare(
+                  password,
+                  exist.password
+                )
+                if (!isPasswordsValid) {
+                  throw new Error("Wrong password")
+                } else {
+                  return { id: exist.id, name: exist.username }
+                }
+              }
+            } catch (error) {
+              console.log(error.message)
+            }
+            break
+          default:
+            break
         }
-        // Find user in the database
-        const exist = data.users.filter(
-          (user) => user.username === username && user.password === password
-        )
-
-        if (exist.length === 0) {
-          throw new Error("Invalid Data")
-        }
-
-        const user = Object.assign({}, ...exist)
-
-        return { id: user.id, name: user.username }
       }
     })
   ],
@@ -44,7 +81,8 @@ export default NextAuth({
   },
   pages: {
     signIn: "/",
-    signOut: "/"
+    signOut: "/",
+    error: "/"
   },
 
   callbacks: {
@@ -57,7 +95,6 @@ export default NextAuth({
       return token
     },
 
-    // Called after successful signup
     async session({ session, token }) {
       if (token) {
         session.id = token.id

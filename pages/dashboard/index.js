@@ -1,13 +1,8 @@
 import React from "react"
+import Dashboard from "../../components/Dashboard/Dashboard"
 
 const index = () => {
-  return (
-    <div className="flex justify-center items-center text-center">
-      <div className="flex justify-center items-center text-center mt-16">
-        xxx
-      </div>
-    </div>
-  )
+  return <Dashboard />
 }
 
 export default index

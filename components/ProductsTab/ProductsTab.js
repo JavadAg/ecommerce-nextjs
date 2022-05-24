@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import { HiHeart } from "react-icons/hi"
 import { useRouter } from "next/router"
+import axios from "axios"
+import { useSession } from "next-auth/react"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const ProductTab = ({ data }) => {
+  const user = useSession()
   const router = useRouter()
   const tabs = [
     {
@@ -18,7 +23,6 @@ const ProductTab = ({ data }) => {
   ]
   const [postNum, setPostNum] = useState(4)
   const [selected, setSelected] = useState(tabs[1])
-  const [discountedExist, setDiscountedExist] = useState(false)
 
   const handleSelect = (tab) => {
     setSelected(tab)
@@ -26,6 +30,29 @@ const ProductTab = ({ data }) => {
 
   const handleLoad = () => {
     setPostNum((prevPostNum) => prevPostNum + 4)
+  }
+
+  const notify = () =>
+    toast.warn("Please login first", {
+      position: "bottom-right",
+      autoClose: 1200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
+
+  const handleWishlist = (e, item) => {
+    e.stopPropagation()
+    if (!user.data) {
+      notify()
+    } else {
+      axios.post(
+        `${process.env.NEXT_PUBLIC_URL}/api/wishlist?id=${user.data.id}`,
+        item
+      )
+    }
   }
 
   return (
@@ -66,7 +93,10 @@ const ProductTab = ({ data }) => {
                       {item.tag}
                     </div>
                   )} */}
-                  <div className="absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl">
+                  <div
+                    onClick={(e) => handleWishlist(e, item)}
+                    className="absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl"
+                  >
                     <HiHeart />
                   </div>
                   <Image
@@ -116,6 +146,7 @@ const ProductTab = ({ data }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

@@ -1,26 +1,15 @@
 import { NextResponse, NextRequest } from "next/server"
-import * as jose from "jose"
+import { getToken } from "next-auth/jwt"
 
-const secret = process.env.NEXT_SECRET
+const secret = process.env.NEXTAUTH_SECRET
 
-export default async function auth(req = NextRequest) {
-  const { cookies } = req
+export default async function auth(req, res, next) {
+  const token = await getToken({ req })
   const url = req.nextUrl.clone()
-  const jwt = cookies.token
-  url.pathname = "/"
-
-  if (jwt === undefined) {
+  if (!token) {
     return NextResponse.redirect(url)
   } else {
-    try {
-      const { payload } = await jose.jwtVerify(
-        jwt,
-        new TextEncoder().encode(secret)
-      )
-      return NextResponse.next()
-    } catch (e) {
-      console.log(e.message)
-      return NextResponse.redirect(url)
-    }
+    console.log(token)
+    return NextResponse.next()
   }
 }

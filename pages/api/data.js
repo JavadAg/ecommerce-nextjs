@@ -1,4 +1,4 @@
-import data from "./db.json"
+import data from "../../db.json"
 
 export default function handler(req, res) {
   if (Object.keys(req.query).length !== 0) {

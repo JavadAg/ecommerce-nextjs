@@ -1,12 +1,20 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { HiOutlineUser } from "react-icons/hi"
-import { useDispatch } from "react-redux"
 import { signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/router"
 
 const UserAuth = () => {
+  const [wrongAuth, setWrongAuth] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const dispatch = useDispatch()
+  const [sign, setSign] = useState(false)
+  const { data } = useSession()
+  const router = useRouter()
+
+  const signhandler = () => {
+    setSign(!sign)
+  }
 
   const {
     register,
@@ -20,22 +28,37 @@ const UserAuth = () => {
       redirect: false,
       username: watch("Username"),
       password: watch("Password"),
-      callbackUrl: "/"
+      firstname: watch("Firstname"),
+      lastname: watch("Lastname"),
+      email: watch("Email"),
+      callbackUrl: "/",
+      sign
+    }).then((res) => {
+      if (res.ok) {
+        console.log(res)
+        setShowModal(false)
+      } else {
+        console.log(res.error)
+        setWrongAuth(true)
+      }
     })
 
   return (
     <>
-      <button type="button" onClick={() => setShowModal(true)}>
+      <button
+        type="button"
+        onClick={() => (data ? router.push("/dashboard") : setShowModal(true))}
+      >
         <HiOutlineUser />
       </button>
       {showModal ? (
         <div
           onClick={() => setShowModal(false)}
-          className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none h-screen bg-gradient-to-br from-gray-200/20 to-gray-300/20 backdrop-blur-sm w-100"
+          className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none h-screen bg-gradient-to-br from-gray-200/20 to-gray-300/20 backdrop-blur-sm w-full"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="flex justify-center items-center flex-col p-5 space-y-6 bg-white shadow-lg rounded-lg text-center"
+            className="flex justify-center items-center flex-col p-5 space-y-4 bg-white shadow-lg rounded-lg text-center w-80"
           >
             <span
               className="before:block before:absolute before:-inset-0 before:-mx-1 
@@ -46,18 +69,18 @@ const UserAuth = () => {
               </span>
             </span>
             <span
-              className="flex justify-center w-full items-center text-center text-lg before:content-[''] before:bg-black before:inline-block before:h-0.5 before:relative before:align-middle before:w-24 before:-ml-2/4 before:right-2
-           after:content-[''] after:bg-black after:inline-block after:h-0.5 after:relative after:align-middle after:w-24 before:-ml-2/4 after:left-2
+              className="flex justify-center w-full items-center text-center text-lg before:content-[''] before:bg-black before:inline-block before:h-0.5 before:relative before:align-middle before:w-16 before:-ml-2/4 before:right-2
+           after:content-[''] after:bg-black after:inline-block after:h-0.5 after:relative after:align-middle after:w-16 before:-ml-2/4 after:left-2
             "
             >
-              Login
+              {sign ? "Register" : "Login"}
             </span>
             <form
-              className="flex w-full flex-col justify-center items-center space-y-5"
+              className="flex w-full flex-col justify-center items-center space-y-3"
               onSubmit={handleSubmit(onSubmit)}
             >
               <input
-                className={`block text-base py-2 px-3 w-full rounded-xl border transition-all duration-500 ease-in-out outline-red-100 ${
+                className={`block text-sm py-2 px-3 w-full rounded-md border transition-all duration-500 ease-in-out outline-red-100 ${
                   errors.Username &&
                   "border-l-8 border bg-red-100/20 border-red-400"
                 }`}
@@ -66,12 +89,12 @@ const UserAuth = () => {
                 {...register("Username", { required: true })}
               />
               {errors.Username?.type === "required" && (
-                <p className="font-semibold text-red-400 text-sm">
+                <p className="font-semibold text-red-400 text-xs">
                   Username is required !
                 </p>
               )}
               <input
-                className={`block text-base py-2 px-3 w-full rounded-xl border transition-all duration-500 ease-in-out outline-red-100 ${
+                className={`block text-sm py-2 px-3 w-full rounded-md border transition-all duration-500 ease-in-out outline-red-100 ${
                   errors.Password &&
                   "border-l-8 border bg-red-100/20 border-red-400"
                 }`}
@@ -83,17 +106,83 @@ const UserAuth = () => {
                 })}
               />
               {errors.Password?.type === "required" && (
-                <p className="font-semibold text-red-400 text-sm">
+                <p className="font-semibold text-red-400 text-xs">
                   Password is required !
                 </p>
               )}
+              {wrongAuth && (
+                <span className="font-semibold text-red-400 text-xs">
+                  invalid username or password
+                </span>
+              )}
+              {sign && (
+                <>
+                  <div className="flex w-full  justify-center items-center space-x-2">
+                    <div className="flex w-full  justify-center flex-col items-center space-y-3">
+                      <input
+                        className={`block text-sm py-2 px-3 w-full rounded-md border transition-all duration-500 ease-in-out outline-red-100 ${
+                          errors.Firstname &&
+                          "border-l-8 border bg-red-100/20 border-red-400"
+                        }`}
+                        type="text"
+                        placeholder="Firstname"
+                        {...register("Firstname", { required: true })}
+                      />
+                      {errors.Firstname?.type === "required" && (
+                        <p className="font-semibold text-red-400 text-xs">
+                          Firstname is required !
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex w-full  justify-center flex-col items-center space-y-3">
+                      <input
+                        className={`block text-sm py-2 px-3 w-full rounded-md border transition-all duration-500 ease-in-out outline-red-100 ${
+                          errors.Lastname &&
+                          "border-l-8 border bg-red-100/20 border-red-400"
+                        }`}
+                        type="text"
+                        placeholder="Lastname"
+                        {...register("Lastname", { required: true })}
+                      />
+                      {errors.Lastname?.type === "required" && (
+                        <p className="font-semibold text-red-400 text-xs">
+                          Lastname is required !
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <input
+                    className={`block text-sm py-2 px-3 w-full rounded-md border transition-all duration-500 ease-in-out outline-red-100 ${
+                      errors.Email &&
+                      "border-l-8 border bg-red-100/20 border-red-400"
+                    }`}
+                    type="email"
+                    placeholder="Email"
+                    {...register("Email", { required: true })}
+                  />
+                  {errors.Email?.type === "required" && (
+                    <p className="font-semibold text-red-400 text-xs">
+                      Email is required !
+                    </p>
+                  )}
+                </>
+              )}
+
               <button
-                className="p-1 px-4 rounded-xl text-base border bg-red-300 text-white hover:bg-red-400 active:bg-red-500 transition-colors duration-200 ease-in"
+                className="p-1 px-4 rounded-md text-base text-gray-500 font-semibold hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200 transition-colors duration-200 ease-in"
                 type="submit"
               >
                 Login
               </button>
             </form>
+            <span
+              className="underline underline-offset-4 text-gray-600 text-sm"
+              onClick={signhandler}
+            >
+              {sign
+                ? "Already have an account? Sign in"
+                : "Dont have an account ? Sign up"}
+            </span>
           </div>
         </div>
       ) : null}
