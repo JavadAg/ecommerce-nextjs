@@ -58,6 +58,7 @@ const EmblaCarousel = () => {
                     src={item.imgMobile}
                     width="1200"
                     height="900"
+                    priority="true"
                     layout="responsive"
                     alt="banner"
                   />
@@ -68,6 +69,7 @@ const EmblaCarousel = () => {
                     src={item.img}
                     width="2000"
                     height="900"
+                    priority="true"
                     layout="responsive"
                     alt="banner"
                   />
