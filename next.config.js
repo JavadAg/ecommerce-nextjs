@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { domains: ["img.stadiumgoods.com", "localhost"] },
+  images: { domains: ["localhost"] },
   reactStrictMode: true
 }
 
