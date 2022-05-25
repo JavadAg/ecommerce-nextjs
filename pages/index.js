@@ -10,7 +10,7 @@ export default function Home({ appProps }) {
     <>
       <div>
         <Hero />
-        <ProductsTab data={appProps} />
+        <ProductsTab products={appProps} />
         <Categories data={appProps} />
         <FromtheBlog />
         <Partners />

@@ -6,13 +6,14 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 
 const UserAuth = () => {
-  const [wrongAuth, setWrongAuth] = useState(false)
+  const [error, setError] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [sign, setSign] = useState(false)
   const { data } = useSession()
   const router = useRouter()
 
   const signhandler = () => {
+    setError(false)
     setSign(!sign)
   }
 
@@ -23,7 +24,7 @@ const UserAuth = () => {
     formState: { errors }
   } = useForm()
 
-  const onSubmit = (data) =>
+  const onSubmit = () =>
     signIn("credentials", {
       redirect: false,
       username: watch("Username"),
@@ -38,8 +39,8 @@ const UserAuth = () => {
         console.log(res)
         setShowModal(false)
       } else {
-        console.log(res.error)
-        setWrongAuth(true)
+        console.log(res)
+        setError(true)
       }
     })
 
@@ -110,11 +111,7 @@ const UserAuth = () => {
                   Password is required !
                 </p>
               )}
-              {wrongAuth && (
-                <span className="font-semibold text-red-400 text-xs">
-                  invalid username or password
-                </span>
-              )}
+
               {sign && (
                 <>
                   <div className="flex w-full  justify-center items-center space-x-2">
@@ -167,12 +164,22 @@ const UserAuth = () => {
                   )}
                 </>
               )}
-
+              {error && !sign ? (
+                <span className="font-semibold text-red-400 text-xs">
+                  Invalid username or password
+                </span>
+              ) : error && sign ? (
+                <span className="font-semibold text-red-400 text-xs">
+                  User already exists
+                </span>
+              ) : (
+                ""
+              )}
               <button
                 className="p-1 px-4 rounded-md text-base text-gray-500 font-semibold hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200 transition-colors duration-200 ease-in"
                 type="submit"
               >
-                Login
+                {sign ? "Register" : "Login"}
               </button>
             </form>
             <span

@@ -7,19 +7,20 @@ import { useSession } from "next-auth/react"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-const ProductTab = ({ data }) => {
-  const user = useSession()
+const ProductTab = ({ products }) => {
+  const { data: session, status } = useSession()
+  console.log(session, status)
   const router = useRouter()
   const tabs = [
     {
       name: "Price Drops",
-      item: data?.filter((item) => item?.discountedPrice > 0)
+      item: products?.filter((item) => item?.discountedPrice > 0)
     },
     {
       name: "New Arrivals",
-      item: data
+      item: products
     },
-    { name: "Best Sell", item: data?.filter((item) => item.sold >= 10) }
+    { name: "Best Sell", item: products?.filter((item) => item.sold >= 10) }
   ]
   const [postNum, setPostNum] = useState(4)
   const [selected, setSelected] = useState(tabs[1])
@@ -32,26 +33,57 @@ const ProductTab = ({ data }) => {
     setPostNum((prevPostNum) => prevPostNum + 4)
   }
 
-  const notify = () =>
-    toast.warn("Please login first", {
+  const notify = (message) =>
+    toast.warn(message, {
       position: "bottom-right",
       autoClose: 1200,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
+      closeButton: false,
+      draggable: true,
+      progress: undefined
+    })
+
+  const success = (message) =>
+    toast.success(message, {
+      position: "bottom-right",
+      autoClose: 1200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      closeButton: false,
+      draggable: true,
+      progress: undefined
+    })
+
+  const warn = (message) =>
+    toast.warn(message, {
+      position: "bottom-right",
+      autoClose: 1200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      closeButton: false,
       draggable: true,
       progress: undefined
     })
 
   const handleWishlist = (e, item) => {
     e.stopPropagation()
-    if (!user.data) {
-      notify()
+    if (status !== "authenticated") {
+      notify("Please login first")
     } else {
-      axios.post(
-        `${process.env.NEXT_PUBLIC_URL}/api/wishlist?id=${user.data.id}`,
-        item
-      )
+      axios
+        .post(
+          `${process.env.NEXT_PUBLIC_URL}/api/wishlist?id=${session.id}`,
+          item
+        )
+        .then((res) => {
+          res.status === 200
+            ? success(res.data)
+            : warn("Already in your wishlist")
+        })
     }
   }
 
@@ -83,16 +115,15 @@ const ProductTab = ({ data }) => {
               <div
                 key={item.id}
                 onClick={() => {
-                  router.push(`/shop/${item.id}`)
+                  router.push(`/shop/${item.id}`),
+                    undefined,
+                    {
+                      shallow: true
+                    }
                 }}
                 className=" relative bg-white rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
               >
                 <div className="p-2">
-                  {/* {item.tag == "New" && (
-                    <div className="absolute bg-red-400 w-10 h-5 rounded-2xl flex justify-center text-center items-center text-xs font-bold text-slate-100 lg:text-sm lg:w-14 lg:h-7">
-                      {item.tag}
-                    </div>
-                  )} */}
                   <div
                     onClick={(e) => handleWishlist(e, item)}
                     className="absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl"
@@ -100,7 +131,7 @@ const ProductTab = ({ data }) => {
                     <HiHeart />
                   </div>
                   <Image
-                    className="object-contain hover:rotate-12 transition-all ease-in-out duration-500"
+                    className="object-contain "
                     layout="responsive"
                     width="0"
                     height="0"
@@ -135,7 +166,7 @@ const ProductTab = ({ data }) => {
             ))}
           </div>
           <div className="flex justify-center items-center w-full mt-6">
-            {postNum <= data.length && (
+            {postNum <= products.length && (
               <button
                 className="bg-gray-50 px-3 border border-gray-500/20 py-1 rounded-xl font-medium text-sm hover:bg-slate-200  transition-colors duration-100 ease-linear"
                 onClick={handleLoad}
@@ -146,7 +177,14 @@ const ProductTab = ({ data }) => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer
+        toastClassName={() =>
+          "flex justify-center items-center bg-white border border-gray-200 text-gray-800 py-3 "
+        }
+        bodyClassName={() =>
+          "flex justify-center items-center w-full font-bold"
+        }
+      />
     </div>
   )
 }

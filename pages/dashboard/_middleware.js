@@ -3,13 +3,12 @@ import { getToken } from "next-auth/jwt"
 
 const secret = process.env.NEXTAUTH_SECRET
 
-export default async function auth(req, res, next) {
-  const token = await getToken({ req })
-  const url = req.nextUrl.clone()
+export default async function auth(req) {
+  const token = await getToken({ req, secret })
+  const { origin } = req.nextUrl.clone()
   if (!token) {
-    return NextResponse.redirect(url)
+    return NextResponse.redirect(`${origin}`)
   } else {
-    console.log(token)
     return NextResponse.next()
   }
 }
