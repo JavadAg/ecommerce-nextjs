@@ -2,7 +2,7 @@ import React from "react"
 
 export const PrevButton = ({ enabled, onClick }) => (
   <button
-    className="outline-none cursor-pointer bg-transparent touch-manipulation absolute top-2/4 -translate-y-2/4 border-0 w-8 h-8 justify-center items-center fill-white bg-gray-800 rounded-xl p-2 left-2 opacity-40 hover:opacity-90"
+    className="outline-none cursor-pointer bg-transparent touch-manipulation absolute top-2/4 -translate-y-2/4 border-0 w-8 h-8 justify-center items-center fill-white bg-gray-800 rounded-full p-2 left-2 opacity-40 hover:opacity-90 md:left-7"
     onClick={onClick}
     disabled={!enabled}
   >
@@ -14,7 +14,7 @@ export const PrevButton = ({ enabled, onClick }) => (
 
 export const NextButton = ({ enabled, onClick }) => (
   <button
-    className="outline-none cursor-pointer bg-transparent touch-manipulation absolute top-2/4 -translate-y-2/4 border-0 w-8 h-8 justify-center items-center rounded-xl bg-gray-800   fill-white p-2 right-2 opacity-40 hover:opacity-90"
+    className="outline-none cursor-pointer bg-transparent touch-manipulation absolute top-2/4 -translate-y-2/4 border-0 w-8 h-8 justify-center items-center rounded-full bg-gray-800   fill-white p-2 right-2 opacity-40 hover:opacity-90 md:right-7"
     onClick={onClick}
     disabled={!enabled}
   >

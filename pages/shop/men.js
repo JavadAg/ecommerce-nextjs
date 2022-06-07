@@ -3,7 +3,7 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb"
 import Products from "../../components/Products/Products"
 
 const men = ({ appProps }) => {
-  const menShoes = appProps.filter((item) => item.type === "men")
+  const menShoes = appProps.filter((item) => item.category === "men")
   return (
     <div>
       <Breadcrumb />

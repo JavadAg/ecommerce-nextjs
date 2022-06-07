@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi"
+import { HiOutlineShoppingCart } from "react-icons/hi"
 import MobileNavbar from "./Mobile/MobileNavbar"
 import MobileSidebar from "./Mobile/MobileSidebar"
-import { useSelector } from "react-redux"
 import Search from "../Search/Search"
 import UserAuth from "../UserAuth/UserAuth"
 import { useSession } from "next-auth/react"
+import useShop from "../../utils/context"
+import { signOut } from "next-auth/react"
+import { useRouter } from "next/router"
 
 const Header = () => {
-  const cart = useSelector((state) => state.cart)
-  const { data: session } = useSession()
+  const router = useRouter()
+  const { products } = useShop()
+  const { data: session, status } = useSession()
+  const [cart, setCart] = useState()
+  useEffect(() => {
+    setCart(products)
+  }, [router.asPath])
 
   useEffect(() => {
     window.addEventListener("scroll", isSticky)
@@ -28,7 +34,7 @@ const Header = () => {
       <MobileNavbar />
       <div className="flex z-50 justify-center items-center w-full h-16 fixed">
         <div
-          className={`bg-white flex flex-row-reverse justify-between items-center  bottom-0 h-10 px-3 shadow-md sm:flex-row  md:px-4 ${
+          className={`bg-white flex flex-row-reverse justify-between items-center bottom-0 h-10 px-3 shadow-md sm:flex-row md:px-4 ${
             sticky
               ? "absolute top-0 left-0 right-0 w-full "
               : "rounded-xl w-full mx-2"
@@ -39,13 +45,15 @@ const Header = () => {
               className="before:block before:absolute before:-inset-0 before:-mx-1 
             before:-skew-y-3 before:bg-red-400 relative inline-block cursor-pointer"
             >
-              <span className="font-black text-white relative italic lg:text-lg xl:text-xl">
+              <span className="font-black text-white relative italic lg:text-lg xl:text-lg">
                 HappyFeet
               </span>
             </span>
           </Link>
-          <div className="flex justify-center items-center">
-            <MobileSidebar />
+          <div className="flex justify-center items-center sm:hidden">
+            <div className="flex justify-center items-center ">
+              <MobileSidebar />
+            </div>
             {session?.user?.name && (
               <>
                 <div className="font-semibold text-sm ml-2">Hello</div>
@@ -56,44 +64,52 @@ const Header = () => {
             )}
           </div>
           <div className="hidden sm:flex">
-            <ul className="hidden text-sm font-semibold gap-2 sm:flex md:text-md lg:text-lg xl:text-lg md:gap-4 xl:gap-8">
-              <li>
-                <Link href="#">Blog</Link>
-              </li>
-              <li>
-                <Link href="/shop/men">Men</Link>
-              </li>
-              <li>
-                <Link href="/shop/women">Women</Link>
-              </li>
-              <li>
+            <ul className="hidden text-sm font-semibold gap-2 sm:flex md:text-base lg:text-base xl:text-base md:gap-4 xl:gap-8">
+              <li className="hover:text-red-400 duration-300">
                 <Link href="/shop">Shop</Link>
               </li>
-              <li>
-                <Link href="#">Contact Us</Link>
+              <li className="hover:text-red-400 duration-300">
+                <Link href="/shop/men">Men</Link>
               </li>
-              <li>
-                <Link href="#">On Sale</Link>
+              <li className="hover:text-red-400 duration-300">
+                <Link href="/shop/women">Women</Link>
+              </li>
+              <li className="hover:text-red-400 duration-300">
+                <Link href="/shop/kids">Kids</Link>
+              </li>
+              <li className="hover:text-red-400 duration-300">
+                <Link href="#">Blog</Link>
               </li>
             </ul>
           </div>
           <div className="hidden sm:flex text-lg gap-2 md:text-xl lg:text-2xl xl:text-2xl">
+            {session?.user?.name && (
+              <div className="flex justify-center group cursor-pointer items-center space-x-1">
+                <div className="font-semibold text-sm lg:text-base">Hello</div>
+                <div className="font-semibold text-sm  text-red-500 lg:text-base">
+                  {session?.user?.name}
+                </div>
+                {session && (
+                  <div className="w-0 flex group-hover:w-16 overflow-hidden justify-center items-center bg-red-400 rounded-md absolute duration-200">
+                    <button
+                      onClick={() => signOut({ callbackUrl: "/" })}
+                      className="bg-red-400 rounded-2xl text-center text-sm px-3 py-2 text-white font-bold"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
             <UserAuth />
             <Link href="/cart">
-              <div className="relative">
-                {/* {cart.length > 0 && (
-                  <span
-                    className={`absolute bottom-4 left-1 bg-red-400 rounded-full h-5 w-5 flex justify-center items-center z-10 font-bold text-sm `}
-                  >
-                    {cart.length}
-                  </span>
-                )} */}
+              <div className="relative flex justify-center items-center">
                 <span
-                  before={cart.length}
+                  before={cart?.length}
                   className={`cursor-pointer relative 
                   ${
-                    cart.length > 0 &&
-                    "before:content-[attr(before)] before:absolute before:bg-red-400 before:h-4 before:w-4 before:text-sm before:font-bold before:rounded-full before:flex before:justify-center before:items-center before:text-white before:bottom-3 before:left-1"
+                    cart?.length > 0 &&
+                    "before:content-[attr(before)] before:absolute before:bg-red-400 before:h-4 before:w-4 before:text-sm before:font-bold before:rounded-full before:flex before:justify-center before:items-center before:text-white before:bottom-3 before:left-1 lg:before:bottom-4"
                   }
                   `}
                 >
@@ -101,9 +117,6 @@ const Header = () => {
                 </span>
               </div>
             </Link>
-            <i className="cursor-pointer">
-              <HiOutlineHeart />
-            </i>
             <Search />
           </div>
         </div>

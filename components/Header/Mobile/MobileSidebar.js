@@ -1,5 +1,11 @@
 import React from "react"
-import { HiX, HiMenuAlt2 } from "react-icons/hi"
+import {
+  HiX,
+  HiMenuAlt2,
+  HiOutlineShoppingBag,
+  HiArrowSmLeft
+} from "react-icons/hi"
+import { GrUser, GrUserFemale } from "react-icons/gr"
 import Link from "next/link"
 import { signOut } from "next-auth/react"
 
@@ -15,61 +21,90 @@ const MobileSidebar = () => {
         <HiMenuAlt2 />
       </button>
       <div
-        className={`transition-all  ease-in-out duration-500 fixed overflow-x-hidden top-2 left-0 bottom-2 bg-gray-50 shadow-lg rounded-r-2xl ${
-          !open ? "w-0" : "w-2/3 "
-        }
-        `}
+        onClick={() => setOpen(!open)}
+        className={`flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50   h-screen  ${
+          !open ? "w-0" : "w-full backdrop-blur-sm"
+        }`}
       >
-        <div className="flex relative flex-col items-center top-2 justify-between space-y-4">
-          <div className="flex flex-row justify-between relative w-full px-2  items-center">
-            <button
-              onClick={() => setOpen(!open)}
-              className="bg-slate-200 p-2 rounded-xl"
-            >
-              <HiX />
-            </button>
-
-            <p className="bg-slate-100 p-2 rounded-2xl font-bold ">HappyFeet</p>
-          </div>
-          <div
-            onClick={() => setOpen(!open)}
-            className="flex flex-col items-start w-11/12 gap-5"
-          >
-            <div className="w-full">
-              <Link className="font-semibold " href={"/shop"}>
-                <p className="hover:bg-white bg-gray-100 w-full p-2 rounded-2xl ">
-                  Shop
-                </p>
-              </Link>
-            </div>
-            <div className="w-full">
-              <Link className="font-semibold " href={"/shop/men"}>
-                <p className="hover:bg-white bg-gray-100 w-full p-2 rounded-2xl ">
-                  Men
-                </p>
-              </Link>
-            </div>
-            <div className="w-full">
-              <Link className="font-semibold " href={"/shop/women"}>
-                <p className="hover:bg-white bg-gray-100 w-full p-2 rounded-2xl ">
-                  Women
-                </p>
-              </Link>
-            </div>
-            <div className="w-full">
-              <Link className="font-semibold " href={"/shop/kids"}>
-                <p className="hover:bg-white bg-gray-100 w-full p-2 rounded-2xl ">
-                  Kids
-                </p>
-              </Link>
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className={`transition-all ease-in-out duration-300 fixed overflow-x-hidden top-2 left-0 bottom-2 bg-white shadow-lg rounded-r-2xl  ${
+            !open ? "w-0" : "w-2/3"
+          } 
+        `}
+        >
+          <div className="flex relative flex-col items-center top-2 justify-between space-y-4">
+            <div className="flex flex-row justify-between relative w-full px-2 items-center">
+              <button
+                onClick={() => setOpen(!open)}
+                className="bg-gray-100 p-2 rounded-xl"
+              >
+                <HiX />
+              </button>
+              <span
+                className="before:block before:absolute before:-inset-0 before:-mx-1 
+            before:-skew-y-3 before:bg-red-400 relative inline-block cursor-pointer right-2"
+              >
+                <span className="font-black text-white relative italic lg:text-lg xl:text-xl">
+                  HappyFeet
+                </span>
+              </span>
             </div>
             <div
-              onClick={() => signOut({ callbackUrl: "/" })}
-              className="w-full"
+              onClick={() => setOpen(!open)}
+              className="flex flex-col items-start w-11/12 gap-5"
             >
-              <p className="hover:bg-white bg-gray-100 w-full p-2 rounded-2xl ">
-                Logout
-              </p>
+              <div className="w-full">
+                <Link href={"/shop"}>
+                  <div className="hover:bg-gray-100 bg-gray-50 w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
+                    <i>
+                      <HiOutlineShoppingBag />
+                    </i>
+                    <span>Shop</span>
+                  </div>
+                </Link>
+              </div>
+              <div className="w-full">
+                <Link className="font-semibold " href={"/shop/men"}>
+                  <div className="hover:bg-gray-100 bg-gray-50 w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
+                    <i>
+                      <GrUser />
+                    </i>
+                    <span>Men</span>
+                  </div>
+                </Link>
+              </div>
+              <div className="w-full">
+                <Link className="font-semibold " href={"/shop/women"}>
+                  <div className="hover:bg-gray-100 bg-gray-50 w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
+                    <i>
+                      <GrUserFemale />
+                    </i>
+                    <span>Women</span>
+                  </div>
+                </Link>
+              </div>
+              <div className="w-full">
+                <Link className="font-semibold " href={"/shop/kids"}>
+                  <div className="hover:bg-gray-100 bg-gray-50 w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
+                    <i>
+                      <HiOutlineShoppingBag />
+                    </i>
+                    <span>Kids</span>
+                  </div>
+                </Link>
+              </div>
+              <div
+                onClick={() => signOut({ callbackUrl: "/" })}
+                className="w-full"
+              >
+                <div className="hover:bg-red-500 bg-red-400 text-white w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
+                  <i>
+                    <HiArrowSmLeft />
+                  </i>
+                  <span>Logout</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

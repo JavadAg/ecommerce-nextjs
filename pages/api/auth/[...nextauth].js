@@ -1,68 +1,139 @@
 import NextAuth from "next-auth"
 import CredentialProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-import dbConnect from "../../../lib/dbConnect"
-import { User } from "../../../models/user"
+import { gql } from "graphql-request"
+import { request } from "../../../lib/graphcms"
 
 export default NextAuth({
   providers: [
     CredentialProvider({
       async authorize(credentials) {
+        //destrucure form
         const { username, password, firstname, lastname, email, sign } =
           credentials
 
-        await dbConnect()
-
+        //case switch for register and login
         switch (sign) {
-          //case register
+          //case register ( if true do register)
           case "true":
             try {
               if (!username || !password || !firstname || !lastname || !email) {
                 throw new Error("Please fill all fields")
               }
-              const exist = await User.findOne({ email })
 
-              if (exist) {
+              // query to see if user already exist
+
+              let query = gql`
+                query MyQuery(
+                  $OR: [NextUserWhereInput!] = [
+                    { email: "${email}" }
+                    { username: "${username}" }
+                  ]
+                ) {
+                  nextUsers(where: { OR: $OR }) {
+                    id
+                  }
+                }
+              `
+
+              let { nextUsers } = await request({
+                query: query
+              })
+
+              if (nextUsers.length > 0) {
                 throw new Error("user already exists")
               }
+
               const hashedPassword = await bcrypt.hash(password, 10)
-              const user = await User.create({
-                username,
-                password: hashedPassword,
-                firstname,
-                lastname,
-                email
+
+              let mutate = gql`
+                mutation MyMutation {
+                  createNextUser(
+                    data: {
+                      username: "${username}"
+                      password:"${hashedPassword}"
+                      firstname: "${firstname}"
+                      lastname: "${lastname}"
+                      email: "${email}"
+                    }
+                  ) {
+                    id
+                  }
+                }
+              `
+
+              let { createNextUser } = await request({
+                query: mutate
               })
-              return { id: user.id, name: user.username }
+
+              const createdId = createNextUser.id
+
+              let mutate1 = gql`
+                mutation MyMutation {
+                  publishNextUser(where: { id: "${createdId}" }) {
+                    id
+                    username
+                    email
+                  }
+                }
+              `
+              let { publishNextUser } = await request({
+                query: mutate1
+              })
+
+              return publishNextUser
             } catch (error) {
               console.log(error.message)
             }
             break
+
+          //if false do login
           case "false":
             //case login
             try {
               if (!username || !password) {
                 throw new Error("Please enter username or password")
               }
-              const exist = await User.findOne({ username })
 
-              if (!exist) {
-                throw new Error("user not exist")
+              //check for user
+
+              let query = gql`
+                query MyQuery {
+                  nextUsers(where: { username: "${username}" }) {
+                    id
+                    email
+                    password
+                    username
+                    firstname
+                    lastname
+                    wishlist
+                  }
+                }
+              `
+
+              let { nextUsers } = await request({
+                query: query
+              })
+
+              if (nextUsers.length === 0) {
+                throw new Error("username or password is wrong")
               } else {
+                const user = Object.assign({}, ...nextUsers)
+                //check password using bcrypt
                 const isPasswordsValid = await bcrypt.compare(
                   password,
-                  exist.password
+                  user.password
                 )
                 if (!isPasswordsValid) {
                   throw new Error("Wrong password")
-                } else {
-                  return { id: exist.id, name: exist.username }
                 }
+                return user
               }
             } catch (error) {
               console.log(error.message)
             }
             break
+
           default:
             break
         }
@@ -79,6 +150,8 @@ export default NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
     encryption: true
   },
+
+  //custom nextauth pages
   pages: {
     signIn: "/",
     signOut: "/",
@@ -89,7 +162,10 @@ export default NextAuth({
     // Called after successful login
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id
+        return {
+          ...token,
+          user: user
+        }
       }
 
       return token
@@ -97,7 +173,8 @@ export default NextAuth({
 
     async session({ session, token }) {
       if (token) {
-        session.id = token.id
+        session.user.id = token.user.id
+        session.user.name = token.user.username
       }
 
       return session

@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
-import { HiOutlineUser } from "react-icons/hi"
+import { HiUser, HiOutlineUser } from "react-icons/hi"
 import { signIn } from "next-auth/react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 
 const UserAuth = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [sign, setSign] = useState(false)
@@ -24,7 +25,8 @@ const UserAuth = () => {
     formState: { errors }
   } = useForm()
 
-  const onSubmit = () =>
+  const onSubmit = () => {
+    setIsSubmitting(true)
     signIn("credentials", {
       redirect: false,
       username: watch("Username"),
@@ -36,22 +38,35 @@ const UserAuth = () => {
       sign
     }).then((res) => {
       if (res.ok) {
-        console.log(res)
         setShowModal(false)
+        setIsSubmitting(false)
       } else {
-        console.log(res)
         setError(true)
+        setIsSubmitting(false)
       }
     })
+  }
 
   return (
     <>
       <button
-        type="button"
+        className={`duration-300 sm:hidden ${
+          router.pathname === "/dashboard"
+            ? " text-red-400 drop-shadow-[0px_0px_5px_#F87171]"
+            : ""
+        }`}
+        onClick={() => (data ? router.push("/dashboard") : setShowModal(true))}
+      >
+        <HiUser />
+      </button>
+
+      <button
+        className="hidden sm:block relative"
         onClick={() => (data ? router.push("/dashboard") : setShowModal(true))}
       >
         <HiOutlineUser />
       </button>
+
       {showModal ? (
         <div
           onClick={() => setShowModal(false)}
@@ -103,7 +118,7 @@ const UserAuth = () => {
                 placeholder="Password"
                 {...register("Password", {
                   required: true,
-                  min: 4
+                  min: 8
                 })}
               />
               {errors.Password?.type === "required" && (
@@ -176,8 +191,9 @@ const UserAuth = () => {
                 ""
               )}
               <button
-                className="p-1 px-4 rounded-md text-base text-gray-500 font-semibold hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200 transition-colors duration-200 ease-in"
+                className="p-1 px-4 rounded-md text-base text-gray-500 font-semibold hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200 transition-colors duration-200 ease-in disabled:text-opacity-20 disabled:cursor-wait"
                 type="submit"
+                disabled={isSubmitting === true}
               >
                 {sign ? "Register" : "Login"}
               </button>

@@ -2,13 +2,24 @@
 
 ### ecommerce website frontend
 
-Currently working:
-Cart
+Features :
+
 Responsive
+
+Cart managment
+
+Login / Register
+
+Add to wishlist
+
+Purchase product
 
 ## Screenshot
 
-![](./screenshot/Capture.PNG)
+![](./screenshot/1.PNG)
+![](./screenshot/2.PNG)
+![](./screenshot/3.PNG)
+![](./screenshot/4.PNG)
 
 ## Getting started
 
@@ -30,7 +41,8 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Future Updates
 
-- [x] Alot to do
+- [] Dark mode
+- [] Add a real payment method
 
 ## Built With
 
@@ -38,12 +50,20 @@ React
 
 Nextjs
 
-Redux toolkit
+Graphcms
 
-Redux persist
+Graphql-request
 
 Tailwind CSS
 
+Headless ui
+
 Embla carousel
 
-Axios
+NextAuth
+
+NProgeress
+
+React toastfiy
+
+React hook form

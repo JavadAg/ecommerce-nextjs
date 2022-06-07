@@ -1,35 +1,53 @@
-import axios from "axios"
 import "../styles/globals.css"
 import "@fontsource/quicksand"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
-import store from "../redux/store"
-import { PersistGate } from "redux-persist/integration/react"
+import { gql } from "graphql-request"
+import { request } from "../lib/graphcms"
 import { SessionProvider } from "next-auth/react"
-import { Provider } from "react-redux"
-import { persistStore } from "redux-persist"
-
-let persistor = persistStore(store)
+import { ShopProvider } from "../utils/context"
+import NextNProgress from "nextjs-progressbar"
 
 function MyApp({ Component, pageProps, appProps }) {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <SessionProvider>
-          <Header />
-          <div className="bg-gray-50">
-            <Component {...pageProps} appProps={appProps} />
-          </div>
-          <Footer />
-        </SessionProvider>
-      </PersistGate>
-    </Provider>
+    <ShopProvider>
+      <NextNProgress showOnShallow={true} color="#F87171" height={3} />
+      <SessionProvider>
+        <Header />
+        <div className="bg-gray-50">
+          <Component {...pageProps} appProps={appProps} />
+        </div>
+        <Footer />
+      </SessionProvider>
+    </ShopProvider>
   )
 }
 
+const query = gql`
+  {
+    products(orderBy: createdAt_DESC) {
+      slug
+      id
+      name
+      brand
+      category
+      price
+      discountprice
+      sold
+      img {
+        url
+      }
+      sizes
+    }
+  }
+`
+
 MyApp.getInitialProps = async (ctx) => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/data`)
-  const data = res.data.products
-  return { appProps: data.reverse() }
+  const { products } = await request({
+    query: query
+  })
+
+  return { appProps: products }
 }
+
 export default MyApp

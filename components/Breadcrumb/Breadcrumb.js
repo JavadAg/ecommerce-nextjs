@@ -36,7 +36,7 @@ const Breadcrumb = () => {
   }
 
   return (
-    <div className="flex text-sm font-semibold mx-2">
+    <div className="flex text-sm font-semibold px-2 md:px-10 w-full xl:px-36">
       <div className="mt-16 w-full flex">
         <div>
           <nav

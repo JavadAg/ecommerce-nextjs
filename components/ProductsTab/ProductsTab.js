@@ -1,20 +1,11 @@
 import React, { useState } from "react"
-import Image from "next/image"
-import { HiHeart } from "react-icons/hi"
-import { useRouter } from "next/router"
-import axios from "axios"
-import { useSession } from "next-auth/react"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import Product from "../Product/Product"
 
 const ProductTab = ({ products }) => {
-  const { data: session, status } = useSession()
-  console.log(session, status)
-  const router = useRouter()
   const tabs = [
     {
       name: "Price Drops",
-      item: products?.filter((item) => item?.discountedPrice > 0)
+      item: products?.filter((item) => item?.discountprice > 0)
     },
     {
       name: "New Arrivals",
@@ -29,62 +20,9 @@ const ProductTab = ({ products }) => {
     setSelected(tab)
   }
 
+  //handle load more posts button
   const handleLoad = () => {
     setPostNum((prevPostNum) => prevPostNum + 4)
-  }
-
-  const notify = (message) =>
-    toast.warn(message, {
-      position: "bottom-right",
-      autoClose: 1200,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      closeButton: false,
-      draggable: true,
-      progress: undefined
-    })
-
-  const success = (message) =>
-    toast.success(message, {
-      position: "bottom-right",
-      autoClose: 1200,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      closeButton: false,
-      draggable: true,
-      progress: undefined
-    })
-
-  const warn = (message) =>
-    toast.warn(message, {
-      position: "bottom-right",
-      autoClose: 1200,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      closeButton: false,
-      draggable: true,
-      progress: undefined
-    })
-
-  const handleWishlist = (e, item) => {
-    e.stopPropagation()
-    if (status !== "authenticated") {
-      notify("Please login first")
-    } else {
-      axios
-        .post(
-          `${process.env.NEXT_PUBLIC_URL}/api/wishlist?id=${session.id}`,
-          item
-        )
-        .then((res) => {
-          res.status === 200
-            ? success(res.data)
-            : warn("Already in your wishlist")
-        })
-    }
   }
 
   return (
@@ -101,90 +39,36 @@ const ProductTab = ({ products }) => {
               onClick={() => {
                 handleSelect(tab)
               }}
-              className={`text-sm z-10 font-bold text-slate-700 transition-colors ease-in-out duration-500 lg:text-lg ${
-                selected.name === tab.name && "text-red-800"
+              className={`text-sm z-10 font-bold transition-all ease-in-out duration-500 lg:text-base ${
+                selected.name === tab.name ? "text-red-600" : "text-slate-700"
               } cursor-pointer `}
             >
               {tab.name}
             </span>
           ))}
         </div>
-        <div className="py-6 px-4 md:px-10 lg:px-24 w-full xl:px-36">
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4   gap-y-4 gap-x-4">
+        <div className="py-6 px-4 md:px-24 lg:px-28 w-full xl:px-36 2xl:px-56">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4">
             {selected.item?.slice(0, postNum).map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  router.push(`/shop/${item.id}`),
-                    undefined,
-                    {
-                      shallow: true
-                    }
-                }}
-                className=" relative bg-white rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm"
-              >
-                <div className="p-2">
-                  <div
-                    onClick={(e) => handleWishlist(e, item)}
-                    className="absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl"
-                  >
-                    <HiHeart />
-                  </div>
-                  <Image
-                    className="object-contain "
-                    layout="responsive"
-                    width="0"
-                    height="0"
-                    src={item.img[0]}
-                    alt={item.name}
-                  />
-                </div>
-                <div className="mt-4 flex justify-center items-center flex-col space-y-1">
-                  <span className="text-sm p-1 rounded-2xl text-gray-500 font-semibold">
-                    {item.name}
-                  </span>
-                  <span className="text-xs text-red-700 font-medium ">
-                    {item.brand}
-                  </span>
-
-                  <div className="space-x-1 flex items-center justify-center">
-                    <span
-                      className={`text-sm font-semibold bg-red-400 px-2 rounded-2xl  my-1 text-gray-100 space-x-1 lg:text-base ${
-                        item.discountedPrice && "line-through bg-gray-500"
-                      }`}
-                    >
-                      {item.price}$
-                    </span>
-                    {item.discountedPrice && (
-                      <span className="text-sm font-semibold my-1 space-x-1 lg:text-base bg-red-400 px-2 rounded-2xl text-gray-100">
-                        {item.discountedPrice}$
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <Product key={item.id} item={item} />
             ))}
           </div>
           <div className="flex justify-center items-center w-full mt-6">
             {postNum <= products.length && (
               <button
-                className="bg-gray-50 px-3 border border-gray-500/20 py-1 rounded-xl font-medium text-sm hover:bg-slate-200  transition-colors duration-100 ease-linear"
                 onClick={handleLoad}
+                href="#_"
+                className="relative rounded-2xl px-2 py-1 overflow-hidden group bg-red-400 hover:bg-gradient-to-r hover:from-red-500 hover:to-red-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-red-400 transition-all ease-out duration-300 md:px-3"
               >
-                Load more ...
+                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="relative text-xs flex justify-center items-center md:text-sm">
+                  Load more ...
+                </span>
               </button>
             )}
           </div>
         </div>
       </div>
-      <ToastContainer
-        toastClassName={() =>
-          "flex justify-center items-center bg-white border border-gray-200 text-gray-800 py-3 "
-        }
-        bodyClassName={() =>
-          "flex justify-center items-center w-full font-bold"
-        }
-      />
     </div>
   )
 }
