@@ -65,7 +65,7 @@ export default function Search() {
                   type="text"
                 />
                 {results.length > 0 && (
-                  <ul className="flex absolute justify-center items-center text-center flex-col z-40 text-base space-y-4 w-full text-red-500 top-14 ">
+                  <ul className="flex absolute justify-center items-center text-center flex-col z-40 text-base space-y-4 w-full text-gray-800 top-14 font-bold ">
                     {results.map((item) => (
                       <li className="hover:text-gray-700" key={item.id}>
                         <Link href="/shop/[id]" as={`/shop/${item.slug}`}>
