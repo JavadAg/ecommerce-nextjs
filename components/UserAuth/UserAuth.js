@@ -4,13 +4,14 @@ import { HiUser, HiOutlineUser } from "react-icons/hi"
 import { signIn } from "next-auth/react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
+import { signOut } from "next-auth/react"
 
 const UserAuth = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [sign, setSign] = useState(false)
-  const { data } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
 
   const signhandler = () => {
@@ -25,6 +26,7 @@ const UserAuth = () => {
     formState: { errors }
   } = useForm()
 
+  //Nextauth form
   const onSubmit = () => {
     setIsSubmitting(true)
     signIn("credentials", {
@@ -59,13 +61,26 @@ const UserAuth = () => {
       >
         <HiUser />
       </button>
-
-      <button
-        className="hidden sm:block relative"
-        onClick={() => (data ? router.push("/dashboard") : setShowModal(true))}
-      >
-        <HiOutlineUser />
-      </button>
+      <div className="flex justify-center items-center group relative">
+        <button
+          className="hidden sm:block relative"
+          onClick={() =>
+            session ? router.push("/dashboard") : setShowModal(true)
+          }
+        >
+          <HiOutlineUser />
+        </button>
+        {session && (
+          <div className="w-0 flex group-hover:w-16 overflow-hidden justify-center items-center bg-red-400 rounded-md absolute duration-200 top-9">
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="bg-red-400 rounded-2xl text-center text-sm px-3 py-2 text-white font-bold"
+            >
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
 
       {showModal ? (
         <div

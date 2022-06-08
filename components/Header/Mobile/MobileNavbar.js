@@ -9,6 +9,8 @@ import useShop from "../../../utils/context"
 const MobileNavbar = () => {
   const { products } = useShop()
   const [cart, setCart] = useState()
+
+  //useeffect to reset cart length icon
   useEffect(() => {
     setCart(products)
   }, [])

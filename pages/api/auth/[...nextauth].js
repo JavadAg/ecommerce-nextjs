@@ -40,10 +40,12 @@ export default NextAuth({
                 query: query
               })
 
+              //if exist throw error
               if (nextUsers.length > 0) {
                 throw new Error("user already exists")
               }
 
+              //hashing password
               const hashedPassword = await bcrypt.hash(password, 10)
 
               let mutate = gql`
@@ -68,6 +70,7 @@ export default NextAuth({
 
               const createdId = createNextUser.id
 
+              //publish user since graphcms doesnt do it
               let mutate1 = gql`
                 mutation MyMutation {
                   publishNextUser(where: { id: "${createdId}" }) {

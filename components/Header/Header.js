@@ -7,7 +7,6 @@ import Search from "../Search/Search"
 import UserAuth from "../UserAuth/UserAuth"
 import { useSession } from "next-auth/react"
 import useShop from "../../utils/context"
-import { signOut } from "next-auth/react"
 import { useRouter } from "next/router"
 
 const Header = () => {
@@ -15,6 +14,8 @@ const Header = () => {
   const { products } = useShop()
   const { data: session, status } = useSession()
   const [cart, setCart] = useState()
+
+  //set cart length icon to newest value on route change
   useEffect(() => {
     setCart(products)
   }, [router.asPath])
@@ -23,6 +24,7 @@ const Header = () => {
     window.addEventListener("scroll", isSticky)
   }, [])
 
+  //set header sticky
   const [sticky, setSticky] = useState(false)
   const isSticky = () => {
     const scrollTop = window.scrollY
@@ -89,16 +91,6 @@ const Header = () => {
                 <div className="font-semibold text-sm  text-red-500 lg:text-base">
                   {session?.user?.name}
                 </div>
-                {session && (
-                  <div className="w-0 flex group-hover:w-16 overflow-hidden justify-center items-center bg-red-400 rounded-md absolute duration-200">
-                    <button
-                      onClick={() => signOut({ callbackUrl: "/" })}
-                      className="bg-red-400 rounded-2xl text-center text-sm px-3 py-2 text-white font-bold"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
               </div>
             )}
             <UserAuth />

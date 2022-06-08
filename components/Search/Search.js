@@ -9,6 +9,7 @@ export default function Search() {
   const [results, setResults] = useState([])
   const [showModal, setShowModal] = useState(false)
 
+  //search query
   const onChange = async (e) => {
     const query = gql`
       query MyQuery {
@@ -30,6 +31,7 @@ export default function Search() {
     }
   }
 
+  //reset results state if modal closed
   useEffect(() => {
     showModal === false && setResults([])
   }, [showModal])

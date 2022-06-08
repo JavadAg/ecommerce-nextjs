@@ -5,7 +5,6 @@ const FromtheBlog = ({ posts }) => {
   const SLIDE_COUNT = posts.length
   const slides = Array.from(Array(SLIDE_COUNT).keys())
 
-  console.log(posts)
   return (
     <div>
       <div className="flex flex-col justify-center items-center mt-10 px-4 lg:mb-4">

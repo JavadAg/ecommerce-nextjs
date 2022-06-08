@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Product from "../Product/Product"
 
+//filter products based on selection in tabs
 const ProductTab = ({ products }) => {
   const tabs = [
     {

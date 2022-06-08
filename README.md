@@ -41,8 +41,9 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Future Updates
 
-- [] Dark mode
-- [] Add a real payment method
+- [ ] Dark mode
+- [ ] Add more page
+- [ ] Add a real payment method
 
 ## Built With
 
