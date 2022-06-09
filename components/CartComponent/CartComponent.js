@@ -13,6 +13,18 @@ const CartComponent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { data: session, status } = useSession()
 
+  const notify = (message) =>
+    toast.warn(message, {
+      position: "bottom-right",
+      autoClose: 1200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      closeButton: false,
+      draggable: true,
+      progress: undefined
+    })
+
   const success = (message) =>
     toast.success(message, {
       position: "bottom-right",
