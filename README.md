@@ -1,6 +1,6 @@
-# Ecommerce Frontend Nextjs
+# Ecommerce website using Nextjs
 
-### ecommerce website frontend
+### ecommerce website
 
 Features :
 
