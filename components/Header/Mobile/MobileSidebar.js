@@ -7,10 +7,11 @@ import {
 } from "react-icons/hi"
 import { GrUser, GrUserFemale } from "react-icons/gr"
 import Link from "next/link"
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 
 const MobileSidebar = () => {
   const [open, setOpen] = React.useState(false)
+  const { data: session } = useSession()
 
   return (
     <div className="sm:hidden">
@@ -94,17 +95,19 @@ const MobileSidebar = () => {
                   </div>
                 </Link>
               </div>
-              <div
-                onClick={() => signOut({ callbackUrl: "/" })}
-                className="w-full"
-              >
-                <div className="hover:bg-red-500 bg-red-400 text-white w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
-                  <i>
-                    <HiArrowSmLeft />
-                  </i>
-                  <span>Logout</span>
+              {session?.user && (
+                <div
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="w-full"
+                >
+                  <div className="hover:bg-red-500 bg-red-400 text-white w-full p-2 rounded-2xl space-x-2 flex justify-start items-center duration-300">
+                    <i>
+                      <HiArrowSmLeft />
+                    </i>
+                    <span>Logout</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

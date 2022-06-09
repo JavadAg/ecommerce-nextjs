@@ -57,7 +57,9 @@ const UserAuth = () => {
             ? " text-red-400 drop-shadow-[0px_0px_5px_#F87171]"
             : ""
         }`}
-        onClick={() => (data ? router.push("/dashboard") : setShowModal(true))}
+        onClick={() =>
+          session ? router.push("/dashboard") : setShowModal(true)
+        }
       >
         <HiUser />
       </button>
