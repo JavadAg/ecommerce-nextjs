@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/router"
 import { HiHeart } from "react-icons/hi"
 import { useSession } from "next-auth/react"
@@ -131,7 +131,7 @@ const Product = ({ item }) => {
         <div className="p-2">
           <div
             onClick={(e) => handleWishlist(e, item)}
-            className="absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold text-slate-200 active:text-red-500 z-10 lg:text-3xl"
+            className={`absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold   z-10 lg:text-3xl cursor-pointer text-gray-200`}
           >
             <HiHeart />
           </div>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Hero from "../components/Hero/Hero"
 import Categories from "../components/Categories/Categories"
 import ProductsTab from "../components/ProductsTab/ProductsTab"

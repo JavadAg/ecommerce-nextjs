@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Product from "../Product/Product"
 
 //filter products based on selection in tabs

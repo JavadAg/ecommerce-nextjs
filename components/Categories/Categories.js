@@ -26,10 +26,10 @@ const Categories = ({ data }) => {
           <div className="flex gap-2 w-full md:gap-4">
             <div
               onClick={() => router.push("/shop")}
-              className="w-8/12 relative grayscale  hover:grayscale-0 transition-all group duration-500 ease-in-out hover:ring-2 ring-red-300/50  ring-offset-2 rounded-2xl"
+              className="w-8/12 relative grayscale  hover:grayscale-0 transition-all group duration-500 ease-in-out hover:ring-2 ring-red-300/50  ring-offset-2 rounded-2xl cursor-pointer"
             >
               <Image
-                className="object-cover flex justify-center h-full items-center w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out"
+                className="object-cover flex justify-center h-full items-center w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out "
                 src="/all.png"
                 alt="all"
                 layout="fill"
@@ -43,7 +43,7 @@ const Categories = ({ data }) => {
             </div>
             <div
               onClick={() => router.push("/shop/kids")}
-              className="w-4/12 relative grayscale hover:grayscale-0 transition-all group duration-500 ease-in-out rounded-2xl hover:ring-2 ring-red-300/50 ring-offset-2"
+              className="w-4/12 relative grayscale hover:grayscale-0 transition-all group duration-500 ease-in-out rounded-2xl hover:ring-2 ring-red-300/50 ring-offset-2 cursor-pointer"
             >
               <Image
                 className="object-cover w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out"
@@ -64,7 +64,7 @@ const Categories = ({ data }) => {
           <div className="flex gap-2 w-full md:gap-4">
             <div
               onClick={() => router.push("/shop/men")}
-              className="w-2/4 relative grayscale hover:grayscale-0 transition-all group duration-500 ease-in-out hover:ring-2 ring-red-300/50 ring-offset-2 rounded-2xl"
+              className="w-2/4 relative grayscale hover:grayscale-0 transition-all group duration-500 ease-in-out hover:ring-2 ring-red-300/50 ring-offset-2 rounded-2xl cursor-pointer"
             >
               <Image
                 className="object-cover w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out"
@@ -83,7 +83,7 @@ const Categories = ({ data }) => {
             </div>
             <div
               onClick={() => router.push("/shop/women")}
-              className="w-2/4 relative grayscale hover:grayscale-0 transition-all group duration-500 ease-in-out hover:ring-2 ring-red-300/50 ring-offset-2 rounded-2xl"
+              className="w-2/4 relative grayscale hover:grayscale-0 transition-all group duration-500 ease-in-out hover:ring-2 ring-red-300/50 ring-offset-2 rounded-2xl cursor-pointer"
             >
               <Image
                 className="object-cover w-full rounded-2xl brightness-50 group-hover:brightness-100 transition-all group duration-500 ease-in-out"
