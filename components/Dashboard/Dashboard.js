@@ -114,7 +114,7 @@ const Dashboard = ({ data }) => {
                 </Transition>
               </div>
 
-              <div className="hidden sm:flex justify-center items-start flex-col z-10 bg-white dark:bg-zinc-800  max-h-56 rounded-2xl py-1 text-base overflow-auto focus:outline-none sm:text-sm border border-gray-300 w-4/12">
+              <div className="hidden sm:flex justify-center items-start flex-col z-10 bg-white dark:bg-zinc-800  max-h-56 rounded-2xl py-1 text-base overflow-auto focus:outline-none sm:text-sm border border-gray-300 dark:border-zinc-700 w-4/12">
                 {menu.map((item, index) => (
                   <Listbox.Option
                     onClick={setSelected}
@@ -123,7 +123,7 @@ const Dashboard = ({ data }) => {
                       classNames(
                         selected
                           ? "text-white bg-red-300 w-full"
-                          : "text-gray-900",
+                          : "text-gray-900 dark:text-zinc-100",
                         "cursor-default select-none  relative py-2 pl-3 pr-9 list-none"
                       )
                     }
