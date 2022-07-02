@@ -45,7 +45,7 @@ export default function Search() {
   return (
     <>
       <button type="button" onClick={() => setShowModal(true)}>
-        <HiSearch />
+        <HiSearch className="dark:text-zinc-800" />
       </button>
       {showModal ? (
         <>
@@ -59,15 +59,18 @@ export default function Search() {
             >
               <div ref={searchRef} className="relative">
                 <input
-                  className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-2xl text-sm focus:outline-none"
+                  className="border-2 border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 h-10 px-5 pr-16 rounded-2xl text-sm focus:outline-none"
                   onChange={onChange}
                   placeholder="Search"
                   type="text"
                 />
                 {results.length > 0 && (
-                  <ul className="flex absolute justify-center items-center text-center flex-col z-40 text-base space-y-4 w-full text-gray-800 top-14 font-bold ">
+                  <ul className="flex absolute justify-center items-center text-center flex-col z-40 text-base space-y-4 w-full text-gray-800 dark:text-zinc-200 top-14 font-bold ">
                     {results.map((item) => (
-                      <li className="hover:text-gray-700" key={item.id}>
+                      <li
+                        className="hover:text-gray-700 dark:hover:text-zinc-700"
+                        key={item.id}
+                      >
                         <Link href="/shop/[id]" as={`/shop/${item.slug}`}>
                           {item.name}
                         </Link>

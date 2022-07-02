@@ -3,8 +3,8 @@ import React from "react"
 const Partners = () => {
   return (
     <div className="py-10 px-4 md:px-10 lg:px-24 xl:px-36">
-      <div className="flex justify-evenly items-center space-x-4 px-2 py-2 bg-white rounded-2xl ">
-        <div className="object-contain w-16 lg:w-24">
+      <div className="flex justify-evenly items-center space-x-4 px-2 py-2 bg-white dark:bg-zinc-800 rounded-2xl ">
+        <div className="object-contain w-16 lg:w-24 ">
           <img src="/./Adidas_Logo.svg" alt="Adidas Logo" />
         </div>
         <div className="object-contain w-16 lg:w-24">

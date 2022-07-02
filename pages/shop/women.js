@@ -3,12 +3,13 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb"
 import Products from "../../components/Products/Products"
 
 const women = ({ appProps }) => {
-  const womenShoes = appProps.filter((item) => item.category === "women")
+  const { products, userWishlist } = appProps
+  const womenShoes = products.filter((item) => item.category === "women")
 
   return (
     <div>
       <Breadcrumb />
-      <Products data={womenShoes} />
+      <Products data={womenShoes} userWishlist={userWishlist} />
     </div>
   )
 }

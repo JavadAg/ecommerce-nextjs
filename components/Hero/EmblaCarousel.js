@@ -93,17 +93,17 @@ const EmblaCarousel = () => {
         </div>
       </div>
       <div className="relative -mt-4 px-6 w-full md:absolute md:top-[35%] md:w-5/12 md:left-10 lg:top-1/4 xl:top-[35%]">
-        <div className="bg-white border shadow-sm space-y-2 py-2 px-2 rounded-2xl flex justify-around flex-col items-center md:py-6 lg:py-10 lg:space-y-12">
+        <div className="bg-white dark:bg-zinc-800 border dark:border-zinc-800 shadow-sm space-y-2 py-2 px-2 rounded-2xl flex justify-around flex-col items-center md:py-6 lg:py-10 lg:space-y-12">
           <span className="text-xl text-center font-black text-red-400 lg:text-3xl">
             The Fashion of Champion
           </span>
-          <p className="text-center text-sm text-gray-900/70 lg:text-xl">
+          <p className="text-center text-sm text-zinc-900/70 dark:text-gray-100/70 lg:text-xl">
             Shop official merch from HappyFeet, the world’s premier sneaker and
             streetwear marketplace.
           </p>
           <button
             onClick={() => router.push("/shop")}
-            className="bg-red-400/80 text-white px-2 rounded-xl font-bold text-sm py-1 italic lg:text-base"
+            className="bg-red-400/80 text-white dark:text-gray-100 px-2 rounded-xl font-bold text-sm py-1 italic lg:text-base"
           >
             Buy Now
           </button>

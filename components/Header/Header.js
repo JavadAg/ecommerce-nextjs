@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import { HiOutlineShoppingCart } from "react-icons/hi"
+import {
+  HiOutlineShoppingCart,
+  HiOutlineSun,
+  HiOutlineMoon
+} from "react-icons/hi"
 import MobileNavbar from "./Mobile/MobileNavbar"
 import MobileSidebar from "./Mobile/MobileSidebar"
 import Search from "../Search/Search"
 import UserAuth from "../UserAuth/UserAuth"
 import { useSession } from "next-auth/react"
-import useShop from "../../utils/context"
+import useShop from "../../utils/cartcontext"
 import { useRouter } from "next/router"
+import { useTheme } from "next-themes"
 
 const Header = () => {
+  const { systemTheme, theme, setTheme } = useTheme()
+  const currentTheme = theme === "system" ? systemTheme : theme
   const router = useRouter()
   const { products } = useShop()
   const { data: session, status } = useSession()
@@ -36,31 +43,43 @@ const Header = () => {
       <MobileNavbar />
       <div className="flex z-50 justify-center items-center w-full h-16 fixed">
         <div
-          className={`bg-white flex flex-row-reverse justify-between items-center bottom-0 h-10 px-3 shadow-md sm:flex-row md:px-4 ${
+          className={`bg-white dark:bg-zinc-800 dark:text-gray-300 flex flex-row-reverse justify-between items-center bottom-0 h-10 px-3 shadow-md sm:flex-row md:px-4 ${
             sticky
               ? "absolute top-0 left-0 right-0 w-full "
               : "rounded-xl w-full mx-2"
           }`}
         >
-          <Link href="/">
-            <span
-              className="before:block before:absolute before:-inset-0 before:-mx-1 
-            before:-skew-y-3 before:bg-red-400 relative inline-block cursor-pointer"
+          <div className="flex justify-center items-center flex-row sm:flex-row-reverse">
+            <button
+              onClick={() =>
+                theme === "dark" ? setTheme("light") : setTheme("dark")
+              }
+              className="bg-gray-100 p-1 rounded-full cursor-pointer mx-3 dark:bg-zinc-700"
             >
-              <span className="font-black text-white relative italic lg:text-lg xl:text-lg">
-                HappyFeet
+              {currentTheme === "dark" ? <HiOutlineMoon /> : <HiOutlineSun />}
+            </button>
+            <Link href="/">
+              <span
+                className="before:block before:absolute before:-inset-0 before:-mx-1 
+            before:-skew-y-3 before:bg-red-400 relative inline-block cursor-pointer"
+              >
+                <span className="font-black text-white dark:text-gray-100 relative italic lg:text-lg xl:text-lg">
+                  HappyFeet
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+          </div>
+
           <div className="flex justify-center items-center sm:hidden">
             <div className="flex justify-center items-center ">
               <MobileSidebar />
             </div>
-            {session?.user?.name && (
+
+            {session?.user.username && (
               <>
                 <div className="font-semibold text-sm ml-2">Hello</div>
                 <div className="font-semibold text-sm ml-1 text-red-500">
-                  {session?.user?.name}
+                  {session?.user.username}
                 </div>
               </>
             )}
@@ -85,11 +104,11 @@ const Header = () => {
             </ul>
           </div>
           <div className="hidden sm:flex text-lg gap-2 md:text-xl lg:text-2xl xl:text-2xl">
-            {session?.user?.name && (
+            {session?.user?.username && (
               <div className="flex justify-center group cursor-pointer items-center space-x-1">
                 <div className="font-semibold text-sm lg:text-base">Hello</div>
                 <div className="font-semibold text-sm  text-red-500 lg:text-base">
-                  {session?.user?.name}
+                  {session?.user?.username}
                 </div>
               </div>
             )}
@@ -101,7 +120,7 @@ const Header = () => {
                   className={`cursor-pointer relative 
                   ${
                     cart?.length > 0 &&
-                    "before:content-[attr(before)] before:absolute before:bg-red-400 before:h-4 before:w-4 before:text-sm before:font-bold before:rounded-full before:flex before:justify-center before:items-center before:text-white before:bottom-3 before:left-1 lg:before:bottom-4"
+                    "before:content-[attr(before)] before:absolute before:bg-red-400 before:h-4 before:w-4 before:text-sm before:font-bold before:rounded-full before:flex before:justify-center before:items-center before:text-white before:dark:text-zinc-100 before:bottom-3 before:left-1 lg:before:bottom-4"
                   }
                   `}
                 >

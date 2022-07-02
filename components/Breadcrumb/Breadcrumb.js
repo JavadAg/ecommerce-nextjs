@@ -40,7 +40,7 @@ const Breadcrumb = () => {
       <div className="mt-16 w-full flex">
         <div>
           <nav
-            className="flex py-3 px-5 text-gray-700 bg-white rounded-xl border border-gray-200"
+            className="flex py-3 px-5 text-gray-700 dark:text-gray-300 bg-white dark:bg-zinc-800 rounded-xl border border-gray-200 dark:border-gray-800"
             aria-label="Breadcrumb"
           >
             <ul className="flex items-center space-x-1 md:space-x-3">

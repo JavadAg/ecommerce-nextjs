@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import EmblaCarousel from "./EmblaCarousel/EmblaCarousel"
-import useShop from "../../../utils/context"
+import useShop from "../../../utils/cartcontext"
 
 const ProductDetails = ({ data }) => {
   const { brand, img, name, price, sizes, category, discountprice } = data
@@ -23,19 +23,19 @@ const ProductDetails = ({ data }) => {
           <span className="text-lg rounded-2xl font-bold mt-4 text-gray-50 bg-red-400 w-full text-center md:mt-0 md:bg-transparent md:text-gray-700 xl:text-2xl">
             {name}
           </span>
-          <span className="text-md rounded-2xl  font-bold bg-white text-red-400/80 w-full text-center md:bg-transparent xl:text-2xl">
+          <span className="text-md rounded-2xl  font-bold bg-white dark:bg-zinc-800 text-red-400/80 dark:text-red-300 w-full text-center md:bg-transparent xl:text-2xl">
             {brand}
           </span>
           <div className="space-x-1 flex items-center justify-center ">
             <span
-              className={`font-bold my-1 text-slate-700 space-x-1 lg:text-3xl xl:text-3xl ${
+              className={`font-bold my-1 text-slate-700 dark:text-zinc-200 space-x-1 lg:text-3xl xl:text-3xl ${
                 discountprice > 0 ? "line-through text-md " : "text-2xl"
               }`}
             >
               {price}$
             </span>
             {discountprice > 0 && (
-              <span className=" font-bold text-2xl my-1 text-slate-700 space-x-1 lg:text-3xl xl:text-3xl">
+              <span className=" font-bold text-2xl my-1 text-slate-700 dark:text-zinc-300 space-x-1 lg:text-3xl xl:text-3xl">
                 {discountprice}$
               </span>
             )}
@@ -52,8 +52,8 @@ const ProductDetails = ({ data }) => {
                     <button
                       onClick={() => setSelectedSize(size)}
                       disabled={size.quantity == 0 ? true : false}
-                      className={`bg-gray-100 w-8 h-8 rounded-xl focus:bg-gray-200 text-center disabled:opacity-40   ${
-                        selectedSize === size && "bg-gray-200"
+                      className={`bg-gray-100 dark:bg-zinc-700 duration-300 w-8 h-8 rounded-xl focus:bg-gray-200 dark:focus:bg-zinc-800 text-center disabled:opacity-40 dark:text-zinc-300  ${
+                        selectedSize === size && "bg-gray-200 dark:bg-zinc-800"
                       } `}
                     >
                       {size.size}
@@ -68,18 +68,18 @@ const ProductDetails = ({ data }) => {
               disabled={
                 selectedQuantity == selectedSize?.quantity ? true : false
               }
-              className="w-10 h-7 bg-white text-slate-700  font-semibold rounded-l-lg pl-1  border border-gray-200 border-r-0 disabled:text-opacity-10"
+              className="w-10 h-7 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-300  font-semibold rounded-l-lg pl-1 border border-gray-200 dark:border-zinc-700 border-r-0 disabled:text-opacity-10"
               onClick={() => setSelectedQuantity((prevValue) => prevValue + 1)}
             >
               +
             </button>
 
-            <span className="h-7 flex bg-white items-center text-center px-1 border-t border-b border-gray-200">
+            <span className="h-7 flex bg-white dark:bg-zinc-800 items-center text-center px-1 border-t border-b border-gray-200 dark:border-zinc-700">
               {selectedQuantity}
             </span>
             <button
               disabled={selectedQuantity == 0 ? true : false}
-              className="w-10 h-7 bg-white text-slate-700 font-semibold rounded-r-lg pr-1 border border-gray-200 border-l-0"
+              className="w-10 h-7 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 font-semibold rounded-r-lg pr-1 border border-gray-200 dark:border-zinc-700 border-l-0"
               onClick={() => setSelectedQuantity((prevValue) => prevValue - 1)}
             >
               -
@@ -87,7 +87,7 @@ const ProductDetails = ({ data }) => {
             <button
               disabled={selectedQuantity == 0 ? true : false}
               onClick={() => handleCart()}
-              className={`px-2 py-1 ml-2 bg-red-400 text-gray-50 rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed`}
+              className={`px-2 py-1 ml-2 bg-red-400 text-gray-50  rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               Add to Cart
             </button>

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { HiX } from "react-icons/hi"
-import useShop from "../../utils/context"
+import useShop from "../../utils/cartcontext"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { gql } from "graphql-request"
@@ -130,7 +130,9 @@ const CartComponent = () => {
     <>
       <div className="flex flex-col justify-center items-center w-full py-24 md:px-10 lg:flex-row lg:items-start">
         <div className="flex flex-col justify-center items-center w-full">
-          <h1 className="font-bold pb-6 text-gray-700">Shopping Cart</h1>
+          <h1 className="font-bold pb-6 text-gray-700 dark:text-zinc-200">
+            Shopping Cart
+          </h1>
           <div className="flex w-full px-4 flex-col space-y-2">
             {products.length === 0 ? (
               <h1 className="flex justify-center items-center font-bold text-xl">
@@ -140,7 +142,7 @@ const CartComponent = () => {
               products.map((item, index) => (
                 <div
                   key={index}
-                  className="py-4 bg-white rounded-2xl px-2 border border-gray-300/50 sm:px-4 md:flex md:justify-evenly md:items-center md:flex-row-reverse md:py-0 xl:justify-evenly"
+                  className="py-4 bg-white dark:bg-zinc-800 rounded-2xl px-2 border border-gray-300/50 dark:border-zinc-700 sm:px-4 md:flex md:justify-evenly md:items-center md:flex-row-reverse md:py-0 xl:justify-evenly"
                 >
                   <div className="flex justify-between items-center  md:justify-center md:space-x-5 lg:space-x-6">
                     <div className="flex flex-col justify-center items-center xl:flex-row xl:space-x-2">
@@ -163,7 +165,7 @@ const CartComponent = () => {
                     </div>
                   </div>
                   <div className="flex flex-1 items-center justify-between md:flex-grow-0 md:space-x-7 md:w-full lg:justify-center lg:space-x-10">
-                    <div className="w-36 rounded-2xl">
+                    <div className="w-36 rounded-2xl my-1">
                       <Image
                         className="aspect-video object-contain bg-[#ffffff] rounded-2xl"
                         layout="responsive"
@@ -190,18 +192,18 @@ const CartComponent = () => {
                               ? true
                               : false
                           }
-                          className="w-10 h-7 bg-white text-slate-700  font-semibold rounded-l-lg pl-1  border border-gray-200 border-r-0 disabled:text-opacity-10"
+                          className="w-10 h-7 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 font-semibold rounded-l-lg pl-1  border border-gray-200 dark:border-zinc-700 border-r-0 disabled:text-opacity-10"
                           onClick={() => {
                             increment(item)
                           }}
                         >
                           +
                         </button>
-                        <span className="h-7 flex bg-white items-center text-center px-1 border-t border-b border-gray-200">
+                        <span className="h-7 flex bg-white dark:bg-zinc-800 items-center text-center px-1 border-t border-b border-gray-200 dark:border-zinc-700">
                           {item.product.selectedQuantity}
                         </span>
                         <button
-                          className="w-10 h-7 bg-white text-slate-700 font-semibold rounded-r-lg pr-1 border border-gray-200 border-l-0"
+                          className="w-10 h-7 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 font-semibold rounded-r-lg pr-1 border border-gray-200 dark:border-zinc-700 border-l-0"
                           onClick={() => {
                             decrement(item)
                           }}
@@ -209,7 +211,7 @@ const CartComponent = () => {
                           -
                         </button>
                         <button
-                          className="w-6 h-6 bg-white ring-1 ring-red-200 rounded-lg text-slate-700 font-semibold mx-1 ml-5"
+                          className="w-6 h-6 bg-white dark:bg-zinc-800 ring-1 ring-red-200 rounded-lg dark:hover:bg-red-800 duration-300 text-slate-700 dark:text-zinc-200 font-semibold mx-1 ml-5"
                           onClick={() => {
                             removeItem(item)
                           }}
@@ -227,18 +229,18 @@ const CartComponent = () => {
           </div>
         </div>
         {products?.length > 0 && (
-          <div className="flex justify-center items-center flex-col w-full space-y-5 mt-5 lg:flex lg:justify-center lg:items-center lg:w-5/12 lg:bg-white lg:space-y-4 lg:py-10 lg:relative lg:rounded-2xl lg:border lg:border-gray-300/50 lg:mt-12">
+          <div className="flex justify-center items-center flex-col w-full space-y-5 mt-5 lg:flex lg:justify-center lg:items-center lg:w-5/12 lg:bg-white lg:dark:bg-zinc-800 lg:space-y-4 lg:py-10 lg:relative lg:rounded-2xl lg:border lg:border-gray-300/50 lg:dark:border-zinc-700 lg:mt-12">
             <div className="hidden lg:flex justify-center items-center flex-col lg:mb-36 space-y-10">
               <span className="text-2xl font-bold">Order Summary</span>
               <span className="font-bold text-xl">Items total</span>
               <span className="font-bold text-xl">{getTotalQty()}</span>
             </div>
-            <div className="flex flex-col justify-center items-center font-extrabold bg-white w-11/12 rounded-2xl p-2 lg:bg-gray-100 ">
+            <div className="flex flex-col justify-center items-center font-extrabold bg-white dark:bg-zinc-700 w-11/12 rounded-2xl p-2 lg:bg-gray-100 ">
               <span>Grand Total: $ {getTotalPrice()}</span>
             </div>
             <div
               onClick={handleCheckout}
-              className="flex flex-col justify-center items-center font-extrabold bg-red-400 w-11/12 rounded-2xl p-2 mt-2 "
+              className="flex flex-col justify-center items-center font-extrabold bg-red-400 w-11/12 rounded-2xl p-2 mt-2 cursor-pointer"
             >
               <button
                 disabled={isSubmitting === true}

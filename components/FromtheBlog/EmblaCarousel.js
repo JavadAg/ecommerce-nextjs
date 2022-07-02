@@ -43,7 +43,7 @@ const EmblaCarousel = ({ posts }) => {
             {posts.map((post, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center bg-white rounded-2xl mr-3 flex-shrink-0 flex-grow-0 basis-full md:basis-2/4 lg:basis-2/6"
+                className="flex flex-col justify-center bg-white dark:bg-zinc-800 rounded-2xl mr-3 flex-shrink-0 flex-grow-0 basis-full md:basis-2/4 lg:basis-2/6"
               >
                 <img
                   className="object-cover rounded-t-2xl w-full h-24"
@@ -51,7 +51,7 @@ const EmblaCarousel = ({ posts }) => {
                   alt="blog"
                 />
                 <div className="flex justify-center items-center flex-col p-2">
-                  <h1 className="font-bold flex justify-center my-1 items-center">
+                  <h1 className="font-bold flex justify-center my-1 items-center dark:text-slate-300">
                     {post.title}
                   </h1>
                   <p className="block opacity-60 text-sm relative overflow-ellipsis">

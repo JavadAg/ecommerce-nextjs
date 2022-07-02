@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { HiHeart } from "react-icons/hi"
 import { useSession } from "next-auth/react"
@@ -8,9 +8,19 @@ import Image from "next/image"
 import { gql } from "graphql-request"
 import { request } from "../../lib/graphcms"
 
-const Product = ({ item }) => {
+const Product = ({ item, userWishlist }) => {
   const router = useRouter()
   const { data: session, status } = useSession()
+
+  const [wishlistItems, setWishlistItems] = useState(userWishlist)
+
+  let isWishlistExist = -1
+
+  if (wishlistItems) {
+    isWishlistExist = wishlistItems?.findIndex(
+      (wishItem) => wishItem.id === item.id
+    )
+  }
 
   const notify = (message) =>
     toast.warn(message, {
@@ -108,9 +118,11 @@ const Product = ({ item }) => {
         }
       }
     `
-      await request({
+      const { publishNextUser } = await request({
         query: mutate1
       })
+
+      setWishlistItems(publishNextUser.wishlist)
     }
 
     success("added to wishlist")
@@ -126,17 +138,21 @@ const Product = ({ item }) => {
               shallow: true
             }
         }}
-        className="relative bg-white rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 transition-all ease-in-out duration-500 shadow-sm shadow-gray-100"
+        className="relative bg-white dark:bg-zinc-800 rounded-2xl hover:ring-2 ring-red-300 ring-opacity-50 ring-offset-4 dark:ring-offset-gray-800 transition-all ease-in-out duration-500 shadow-sm shadow-gray-100 dark:shadow-gray-800"
       >
-        <div className="p-2">
+        <div className="p-2 ">
           <div
             onClick={(e) => handleWishlist(e, item)}
-            className={`absolute right-2 top-2 rounded-2xl flex justify-center text-center items-center text-xl font-bold   z-10 lg:text-3xl cursor-pointer text-gray-200`}
+            className={`absolute right-3 top-3 rounded-2xl flex justify-center text-center items-center text-xl  font-bold z-10 lg:text-3xl cursor-pointer `}
           >
-            <HiHeart />
+            <HiHeart
+              className={`${
+                isWishlistExist !== -1 ? "text-red-400" : "text-gray-200"
+              }`}
+            />
           </div>
           <Image
-            className="object-contain "
+            className="object-contain bg-white rounded-2xl"
             layout="responsive"
             width="0"
             height="0"
@@ -145,23 +161,23 @@ const Product = ({ item }) => {
           />
         </div>
         <div className="mt-4 flex justify-center items-center flex-col space-y-1">
-          <span className="text-sm p-1 text-gray-500 font-semibold">
+          <span className="text-sm p-1 text-gray-500 dark:text-gray-300 font-semibold">
             {item.name}
           </span>
-          <span className="text-xs text-red-700 font-medium ">
+          <span className="text-xs text-red-700 font-medium dark:text-red-400">
             {item.brand}
           </span>
 
           <div className="space-x-1 pb-1 flex items-center justify-center">
             <span
-              className={`text-sm font-semibold bg-red-400 px-2 rounded-2xl my-1 text-gray-100 lg:text-base ${
+              className={`text-sm font-semibold bg-red-400 px-2 rounded-2xl my-1 text-gray-100 dark:text-slate-900 lg:text-base ${
                 item.discountprice && "line-through bg-gray-400/50"
               }`}
             >
               {item.price} $
             </span>
             {item.discountprice > 0 && (
-              <span className="text-sm font-semibold  lg:text-base bg-red-400 px-2 rounded-2xl text-gray-100">
+              <span className="text-sm font-semibold  lg:text-base bg-red-400 px-2 rounded-2xl text-gray-100 dark:text-slate-900">
                 {item.discountprice} $
               </span>
             )}

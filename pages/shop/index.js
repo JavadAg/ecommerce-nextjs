@@ -3,10 +3,11 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb"
 import Products from "../../components/Products/Products"
 
 const ShopPage = ({ appProps }) => {
+  const { products, userWishlist } = appProps
   return (
     <div>
       <Breadcrumb />
-      <Products data={appProps} />
+      <Products data={products} userWishlist={userWishlist} />
     </div>
   )
 }

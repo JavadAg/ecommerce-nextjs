@@ -4,22 +4,25 @@ import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import { gql } from "graphql-request"
 import { request } from "../lib/graphcms"
-import { SessionProvider } from "next-auth/react"
-import { ShopProvider } from "../utils/context"
+import { getSession, SessionProvider } from "next-auth/react"
+import { ShopProvider } from "../utils/cartcontext"
 import NextNProgress from "nextjs-progressbar"
+import { ThemeProvider } from "next-themes"
 
 function MyApp({ Component, pageProps, appProps }) {
   return (
-    <ShopProvider>
-      <NextNProgress showOnShallow={true} color="#F87171" height={3} />
+    <ThemeProvider attribute="class">
       <SessionProvider>
-        <Header />
-        <div className="bg-gray-50">
-          <Component {...pageProps} appProps={appProps} />
-        </div>
-        <Footer />
+        <ShopProvider>
+          <NextNProgress showOnShallow={true} color="#F87171" height={3} />
+          <Header />
+          <div className="bg-gray-50 dark:bg-zinc-900">
+            <Component {...pageProps} appProps={appProps} />
+          </div>
+          <Footer />
+        </ShopProvider>
       </SessionProvider>
-    </ShopProvider>
+    </ThemeProvider>
   )
 }
 
@@ -43,11 +46,31 @@ const query = gql`
 `
 
 MyApp.getInitialProps = async (ctx) => {
+  const session = await getSession(ctx)
+  let userWishlist = ""
+
+  if (session) {
+    const query = gql`
+  query MyQuery {
+    nextUser(where: {id: "${session?.user.id}"}) {
+      id
+      wishlist
+    }
+  }
+  `
+
+    let { nextUser } = await request({
+      query: query
+    })
+    console.log(nextUser.wishlist.length)
+    userWishlist = nextUser.wishlist
+  }
+
   const { products } = await request({
     query: query
   })
 
-  return { appProps: products }
+  return { appProps: { products: products, userWishlist: userWishlist } }
 }
 
 export default MyApp

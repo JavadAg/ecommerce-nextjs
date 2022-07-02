@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Hero from "../components/Hero/Hero"
 import Categories from "../components/Categories/Categories"
 import ProductsTab from "../components/ProductsTab/ProductsTab"
@@ -12,8 +12,8 @@ export default function Home({ appProps, blogPosts }) {
     <>
       <div>
         <Hero />
-        <ProductsTab products={appProps} />
-        <Categories data={appProps} />
+        <ProductsTab appProps={appProps} />
+        <Categories data={appProps?.products} />
         <FromtheBlog posts={blogPosts} />
         <Partners />
       </div>
@@ -21,7 +21,7 @@ export default function Home({ appProps, blogPosts }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (ctx) => {
   const query = gql`
     query MyQuery {
       blogPosts {

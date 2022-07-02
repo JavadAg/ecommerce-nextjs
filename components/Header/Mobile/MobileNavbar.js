@@ -4,7 +4,7 @@ import { HiShoppingCart, HiHome } from "react-icons/hi"
 import Link from "next/link"
 import Search from "../../Search/Search"
 import UserAuth from "../../UserAuth/UserAuth"
-import useShop from "../../../utils/context"
+import useShop from "../../../utils/cartcontext"
 
 const MobileNavbar = () => {
   const { products } = useShop()
@@ -18,7 +18,7 @@ const MobileNavbar = () => {
 
   return (
     <div className="flex sm:hidden z-50 w-full justify-center items-center fixed bottom-2 ">
-      <ul className=" bg-gray-200 relative rounded-2xl flex justify-center items-center w-11/12 z-50">
+      <ul className=" bg-gray-200 dark:bg-zinc-700 relative rounded-2xl flex justify-center items-center w-11/12 z-50">
         <li className={`w-full px-2 flex justify-center items-center h-12`}>
           <i
             className={`flex justify-center items-center text-2xl p-3 relative `}
@@ -42,7 +42,7 @@ const MobileNavbar = () => {
                 className={`flex justify-center items-center text-2xl p-3 relative before:content-[''] before:h-10 before:w-10 before:bg-gray-200 before:absolute before:-z-10 before:opacity-0  before:duration-300 before:rounded-t-full`}
               >
                 <HiShoppingCart
-                  className={`duration-300 ${
+                  className={`duration-300 dark:text-zinc-800 ${
                     router.pathname === "/cart"
                       ? " text-red-400 drop-shadow-[0px_0px_5px_#F87171]"
                       : ""
@@ -56,12 +56,12 @@ const MobileNavbar = () => {
           <Link href="/">
             <div className="flex flex-col justify-center items-center ">
               <i
-                className={`flex justify-center items-center text-2xl p-3 relative before:content-[''] before:h-10 before:w-10 before:bg-gray-200 before:absolute before:-z-10 before:opacity-0  before:duration-300 before:rounded-t-full ${
+                className={`flex justify-center items-center text-2xl p-3 relative before:content-[''] before:h-10 before:w-10 before:bg-gray-200 dark:before:bg-zinc-700 before:absolute before:-z-10 before:opacity-0  before:duration-300 before:rounded-t-full ${
                   router.pathname === "/" ? " before:opacity-100" : ""
                 }`}
               >
                 <HiHome
-                  className={`duration-300 ${
+                  className={`duration-300 dark:text-zinc-800 ${
                     router.pathname === "/"
                       ? " text-red-400 drop-shadow-[0px_0px_5px_#F87171]"
                       : ""

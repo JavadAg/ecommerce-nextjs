@@ -61,7 +61,7 @@ const UserAuth = () => {
           session ? router.push("/dashboard") : setShowModal(true)
         }
       >
-        <HiUser />
+        <HiUser className="dark:text-zinc-800" />
       </button>
       <div className="flex justify-center items-center group relative">
         <button
@@ -216,7 +216,7 @@ const UserAuth = () => {
               </button>
             </form>
             <span
-              className="underline underline-offset-4 text-gray-600 text-sm"
+              className="underline underline-offset-4 text-gray-500 text-sm cursor-pointer hover:text-gray-900"
               onClick={signhandler}
             >
               {sign

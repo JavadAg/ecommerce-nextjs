@@ -10,8 +10,8 @@ import {
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center  py-6 bg-white ">
-      <div className="flex justify-center items-center space-x-4 text-sm text-gray-500 lg:text-base">
+    <div className="flex flex-col justify-center items-center  py-6 bg-white dark:bg-zinc-800">
+      <div className="flex justify-center items-center space-x-4 text-sm text-gray-500 dark:text-zinc-300 lg:text-base">
         <Link href="/#">
           <span className="cursor-pointer">About</span>
         </Link>

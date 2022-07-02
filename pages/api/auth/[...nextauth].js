@@ -75,8 +75,12 @@ export default NextAuth({
                 mutation MyMutation {
                   publishNextUser(where: { id: "${createdId}" }) {
                     id
-                    username
                     email
+                    password
+                    username
+                    firstname
+                    lastname
+                    wishlist
                   }
                 }
               `
@@ -176,8 +180,7 @@ export default NextAuth({
 
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.user.id
-        session.user.name = token.user.username
+        session.user = token.user
       }
 
       return session
