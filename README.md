@@ -6,6 +6,8 @@ Features :
 
 Responsive
 
+Dark mode
+
 Cart managment
 
 Login / Register
@@ -41,7 +43,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Future Updates
 
-- [ ] Dark mode
+- [x] Dark mode
 - [ ] Add more page
 - [ ] Add a real payment method
 
